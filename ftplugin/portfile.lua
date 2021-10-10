@@ -12,3 +12,8 @@ bo.shiftwidth    = 4
 bo.tabstop       = 4
 bo.softtabstop   = 4
 bo.commentstring = '# %s'
+
+if (vim.g.macports_snippets == 1) then
+    local current_path = vim.fn.expand('<sfile>:p:h:h')
+    vim.b.vsnip_snippet_dir = current_path..'/snippets'
+end

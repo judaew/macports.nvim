@@ -1,0 +1,91 @@
+{
+    "modeline": {
+        "prefix": "modeline",
+        "body": [
+            "# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4"
+        ],
+        "description": "Vim Modeline"
+    },
+    "new": {
+        "prefix": "new",
+        "body": [
+            "# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4",
+            "",
+            "PortSystem          1.0",
+            "",
+            "name                ${1:PortName}",
+            "version             ${2:PortVersion}",
+            "revision            0",
+            "",
+            "categories          ${3:PortCategories}",
+            "license             ${4:PortLicense}",
+            "maintainers         ${5:MaintainerHandle}",
+            "",
+            "description         ${6:PortDescription}",
+            "long_description    {*}\\${description}",
+            "homepage            ${7:PortHomepage}",
+            "",
+            "checksums           rmd160  x \\",
+            "                    sha256  x \\",
+            "                    size    0"
+        ],
+        "description": "New port"
+    },
+    "new-github": {
+        "prefix": "newgit",
+        "body": [
+             "# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4",
+            "",
+            "PortSystem          1.0",
+            "PortGroup           github 1.0",
+            "",
+            "github.setup        ${1:Author} ${2:Repo} ${3:Tag}",
+            "revision            0",
+            "",
+            "categories          ${5:PortCategories}",
+            "license             ${6:PortLicense}",
+            "maintainers         ${7:MaintainerHandle}",
+            "",
+            "description         ${8:PortDescription}",
+            "long_description    {*}\\${description}",
+            "",
+            "checksums           rmd160  x \\",
+            "                    sha256  x \\",
+            "                    size    0"
+        ],
+        "description": "New port with GitHub PG"
+    },
+    "new-python": {
+        "prefix": "newpy",
+        "body": [
+            "# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4",
+            "",
+            "PortSystem          1.0",
+            "PortGroup           python 1.0",
+            "",
+            "name                py-${1:PortName}",
+            "version             ${2:PortVersion}",
+            "revision            0",
+            "",
+            "categories          python",
+            "supported_archs     noarch",
+            "license             ${3:PortLicense}",
+            "maintainers         ${4:MaintainerHandle}",
+            "",
+            "description         ${5:PortDescription}",
+            "long_description    {*}\\${description}",
+            "homepage            ${6:PortHomepage}",
+            "",
+            "checksums           rmd160  x \\",
+            "                    sha256  x \\",
+            "                    size    0",
+            "",
+            "python.versions     ${7:PythonVersions}",
+            "",
+            "if {\\${name} ne \\${subport}} {",
+            "    livecheck.type      none",
+            "}"           
+        ],
+        "description": "New port with Python PG"
+    }
+}
