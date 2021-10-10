@@ -16,7 +16,7 @@ syn region   mpPhaseBlock      start="\s{$" skip="$" end="^\(\s*\|\)\}$" contain
       \ contains=mpTcl,mpVariable,mpString,mpComment
 
 " Checksums
-syn region   mpChecksums       matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpChecksumsType
+syn region   mpChecksums       matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpVariable,mpChecksumsType
 
 " Variants
 " TODO: Add "mpBlock" group
