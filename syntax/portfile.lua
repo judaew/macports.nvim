@@ -85,13 +85,13 @@ local function highlight(group, link)
 end
 
 local keywords = {
-    -- Revision:      2
+    -- Revision:      3
     -- Revision Date: 2021-10-11
     --
     -- GLOBAL KEYWORDS
 
     { id='PortSystem',                          gr='mpKeywords', ng='mpNumber' },
-    { id='PortGroup',                           gr='mpKeywords', ng='mpNumber' },
+    { id='PortGroup',                           gr='mpKeywords', ng='mpPortGroup' },
     { id='name',                                gr='mpKeywords' },
     { id='version',                             gr='mpKeywords', ng='mpNumber' },
     { id='revision',                            gr='mpKeywords', ng='mpNumber' },
@@ -105,10 +105,10 @@ local keywords = {
     { id='maintainers',                         gr='mpKeywords' },
     { id='description',                pre='1', gr='mpKeywords', ng='mpDescription' },
     { id='long_description',           pre='1', gr='mpKeywords', ng='mpDescription' },
-    { id='homepage',                            gr='mpKeywords' },
-    { id='master_sites',               pre='1', gr='mpKeywords' },
+    { id='homepage',                            gr='mpKeywords', ng='mpURL' },
+    { id='master_sites',               pre='1', gr='mpKeywords', ng='mpURL' },
     { id='master_sites.mirror_subdir',          gr='mpKeywords' },
-    { id='patch_sites',                pre='1', gr='mpKeywords' },
+    { id='patch_sites',                pre='1', gr='mpKeywords', ng='mpURL' },
     { id='distfiles',                  pre='1', gr='mpKeywords' },
     { id='distname',                            gr='mpKeywords' },
     { id='dist_subdir',                         gr='mpKeywords' },
@@ -175,14 +175,14 @@ local keywords = {
     { id='cvs.tag',                             gr='mpKeywords' },
     { id='cvs.date',                            gr='mpKeywords', ng='mpNumber' },
     { id='cvs.module',                          gr='mpKeywords' },
-    { id='svn.url',                             gr='mpKeywords' },
+    { id='svn.url',                             gr='mpKeywords', ng='mpURL' },
     { id='svn.revision',                        gr='mpKeywords', ng='mpNumber' },
     { id='svn.method',                          gr='mpKeywords' },
-    { id='bzr.url',                             gr='mpKeywords' },
+    { id='bzr.url',                             gr='mpKeywords', ng='mpURL' },
     { id='bzr.revision',                        gr='mpKeywords', ng='mpNumber' },
-    { id='git.url',                             gr='mpKeywords' },
+    { id='git.url',                             gr='mpKeywords', ng='mpURL' },
     { id='git.branch',                          gr='mpKeywords' },
-    { id='hg.url',                              gr='mpKeywords' },
+    { id='hg.url',                              gr='mpKeywords', ng='mpURL' },
     { id='hg.tag',                              gr='mpKeywords' },
 
     -- Extract phase keywords
@@ -381,7 +381,7 @@ local keywords = {
     { id='livecheck.name',                      gr='mpKeywords' },
     { id='livecheck.distname',                  gr='mpKeywords' },
     { id='livecheck.version',                   gr='mpKeywords' },
-    { id='livecheck.url',                       gr='mpKeywords' },
+    { id='livecheck.url',                       gr='mpKeywords', ng='mpURL' },
     { id='livecheck.regex',                     gr='mpKeywords' },
     { id='livecheck.md5',                       gr='mpKeywords' },
     { id='distcheck.check',                     gr='mpKeywords' },
@@ -396,12 +396,15 @@ local keywords = {
     { id='vercmp',                              gr='mpTcl', opts='contained' },
     { id='reinplace',                           gr='mpTcl', opts='contained' },
     { id='strsed',                              gr='mpTcl', opts='contained' },
+    { id='file',                                gr='mpTcl', opts='contained' },
     { id='copy',                                gr='mpTcl', opts='contained' },
     { id='move',                                gr='mpTcl', opts='contained' },
     { id='delete',                              gr='mpTcl', opts='contained' },
     { id='touch',                               gr='mpTcl', opts='contained' },
     { id='ln',                                  gr='mpTcl', opts='contained' },
     { id='system',                              gr='mpTcl', opts='contained' },
+    { id='foreach',                             gr='mpTcl', opts='contained' },
+    { id='if',                                  gr='mpTcl', opts='contained' },
     { id='variant_isset',                       gr='mpTcl', opts='contained' },
     { id='variant_set',                         gr='mpTcl', opts='contained' },
     { id='ui_debug',                            gr='mpTcl', opts='contained' },
@@ -410,10 +413,82 @@ local keywords = {
     { id='ui_msg',                              gr='mpTcl', opts='contained' },
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
 
-    -- Revision       1
+    -- Revision       2
     -- Revision date: 2021-10-11
     --
     -- PORT GROUPS
+
+    -- PortGroup names
+
+    { id='active_variants',                     gr='mpPortGroupName', opts='contained' },
+    { id='apache2',                             gr='mpPortGroupName', opts='contained' },
+    { id='app',                                 gr='mpPortGroupName', opts='contained' },
+    { id='archcheck',                           gr='mpPortGroupName', opts='contained' },
+    { id='bazel',                               gr='mpPortGroupName', opts='contained' },
+    { id='bitbucket',                           gr='mpPortGroupName', opts='contained' },
+    { id='boost',                               gr='mpPortGroupName', opts='contained' },
+    { id='cargo',                               gr='mpPortGroupName', opts='contained' },
+    { id='cargo_fetch',                         gr='mpPortGroupName', opts='contained' },
+    { id='clang_dependency',                    gr='mpPortGroupName', opts='contained' },
+    { id='cltversion',                          gr='mpPortGroupName', opts='contained' },
+    { id='cmake',                               gr='mpPortGroupName', opts='contained' },
+    { id='compiler_blacklist_versions',         gr='mpPortGroupName', opts='contained' },
+    { id='compiler_wrapper',                    gr='mpPortGroupName', opts='contained' },
+    { id='compilers',                           gr='mpPortGroupName', opts='contained' },
+    { id='conflicts_build',                     gr='mpPortGroupName', opts='contained' },
+    { id='crossbinutils',                       gr='mpPortGroupName', opts='contained' },
+    { id='crossgcc',                            gr='mpPortGroupName', opts='contained' },
+    { id='cxx11',                               gr='mpPortGroupName', opts='contained' },
+    { id='debug',                               gr='mpPortGroupName', opts='contained' },
+    { id='deprecated',                          gr='mpPortGroupName', opts='contained' },
+    { id='developerversion',                    gr='mpPortGroupName', opts='contained' },
+    { id='elisp',                               gr='mpPortGroupName', opts='contained' },
+    { id='fuse',                                gr='mpPortGroupName', opts='contained' },
+    { id='gitea',                               gr='mpPortGroupName', opts='contained' },
+    { id='github',                              gr='mpPortGroupName', opts='contained' },
+    { id='gitlab',                              gr='mpPortGroupName', opts='contained' },
+    { id='gnu_info',                            gr='mpPortGroupName', opts='contained' },
+    { id='gnustep',                             gr='mpPortGroupName', opts='contained' },
+    { id='gobject_introspection',               gr='mpPortGroupName', opts='contained' },
+    { id='golang',                              gr='mpPortGroupName', opts='contained' },
+    { id='gpg_verify',                          gr='mpPortGroupName', opts='contained' },
+    { id='haskell_cabal',                       gr='mpPortGroupName', opts='contained' },
+    { id='haskell_stack',                       gr='mpPortGroupName', opts='contained' },
+    { id='hunspelldict',                        gr='mpPortGroupName', opts='contained' },
+    { id='janet',                               gr='mpPortGroupName', opts='contained' },
+    { id='java',                                gr='mpPortGroupName', opts='contained' },
+    { id='kde4',                                gr='mpPortGroupName', opts='contained' },
+    { id='legacysupport',                       gr='mpPortGroupName', opts='contained' },
+    { id='linear_algebra',                      gr='mpPortGroupName', opts='contained' },
+    { id='luarocks',                            gr='mpPortGroupName', opts='contained' },
+    { id='makefile',                            gr='mpPortGroupName', opts='contained' },
+    { id='meson',                               gr='mpPortGroupName', opts='contained' },
+    { id='mpi',                                 gr='mpPortGroupName', opts='contained' },
+    { id='mpiutil',                             gr='mpPortGroupName', opts='contained' },
+    { id='muniversal',                          gr='mpPortGroupName', opts='contained' },
+    { id='obsolete',                            gr='mpPortGroupName', opts='contained' },
+    { id='ocaml',                               gr='mpPortGroupName', opts='contained' },
+    { id='octave',                              gr='mpPortGroupName', opts='contained' },
+    { id='old_openssl',                         gr='mpPortGroupName', opts='contained' },
+    { id='perl5',                               gr='mpPortGroupName', opts='contained' },
+    { id='php',                                 gr='mpPortGroupName', opts='contained' },
+    { id='pure',                                gr='mpPortGroupName', opts='contained' },
+    { id='python',                              gr='mpPortGroupName', opts='contained' },
+    { id='qmake',                               gr='mpPortGroupName', opts='contained' },
+    { id='qmake5',                              gr='mpPortGroupName', opts='contained' },
+    { id='qt4',                                 gr='mpPortGroupName', opts='contained' },
+    { id='qt5',                                 gr='mpPortGroupName', opts='contained' },
+    { id='ruby',                                gr='mpPortGroupName', opts='contained' },
+    { id='select',                              gr='mpPortGroupName', opts='contained' },
+    { id='sourcehut',                           gr='mpPortGroupName', opts='contained' },
+    { id='texlive',                             gr='mpPortGroupName', opts='contained' },
+    { id='waf',                                 gr='mpPortGroupName', opts='contained' },
+    { id='wxWidgets',                           gr='mpPortGroupName', opts='contained' },
+    { id='x11font',                             gr='mpPortGroupName', opts='contained' },
+    { id='xcode',                               gr='mpPortGroupName', opts='contained' },
+    { id='xcode_workaround',                    gr='mpPortGroupName', opts='contained' },
+    { id='xcodeversion',                        gr='mpPortGroupName', opts='contained' },
+    { id='xmlcatalog',                          gr='mpPortGroupName', opts='contained' },
 
     -- active_variants (1.1) keywords
 
@@ -867,13 +942,15 @@ syntax(keywords)
 
 highlight('mpKeywords',            'Keyword')
 highlight('mpPhases',              'Keyword')
-highlight('mpTcl',                 'Keyword')
+highlight('mpNumber',              'Number')
 highlight('mpComment',             'Comment')
 highlight('mpVariable',            'Identifier')
 highlight('mpString',              'String')
+highlight('mpURL',                 'Underlined')
+highlight('mpTcl',                 'Keyword')
 
 highlight('mpBoolKeywords',        'Boolean')
-highlight('mpNumber',              'Number')
+highlight('mpPortGroupName',       'Constant')
 highlight('mpChecksumsType',       'Special')
 highlight('mpDescription',         'String')
 highlight('mpConfEntries',         'String')
