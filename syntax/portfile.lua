@@ -85,7 +85,7 @@ local function highlight(group, link)
 end
 
 local keywords = {
-    -- Revision:      0
+    -- Revision:      1
     -- Revision Date: 2021-10-11
     --
     -- GLOBAL KEYWORDS
@@ -402,6 +402,13 @@ local keywords = {
     { id='touch',                               gr='mpTcl', opts='contained' },
     { id='ln',                                  gr='mpTcl', opts='contained' },
     { id='system',                              gr='mpTcl', opts='contained' },
+    { id='variant_isset',                       gr='mpTcl', opts='contained' },
+    { id='variant_set',                         gr='mpTcl', opts='contained' },
+    { id='ui_debug',                            gr='mpTcl', opts='contained' },
+    { id='ui_error',                            gr='mpTcl', opts='contained' },
+    { id='ui_info',                             gr='mpTcl', opts='contained' },
+    { id='ui_msg',                              gr='mpTcl', opts='contained' },
+    { id='ui_warn',                             gr='mpTcl', opts='contained' },
 
     -- Revision       0
     -- Revision date: 2021-10-11
