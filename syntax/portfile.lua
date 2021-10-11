@@ -85,17 +85,17 @@ local function highlight(group, link)
 end
 
 local keywords = {
-    -- Revision:      1
+    -- Revision:      2
     -- Revision Date: 2021-10-11
     --
     -- GLOBAL KEYWORDS
 
-    { id='PortSystem',                          gr='mpKeywords' },
-    { id='PortGroup',                           gr='mpKeywords' },
+    { id='PortSystem',                          gr='mpKeywords', ng='mpNumber' },
+    { id='PortGroup',                           gr='mpKeywords', ng='mpNumber' },
     { id='name',                                gr='mpKeywords' },
-    { id='version',                             gr='mpKeywords' },
-    { id='revision',                            gr='mpKeywords' },
-    { id='epoch',                               gr='mpKeywords' },
+    { id='version',                             gr='mpKeywords', ng='mpNumber' },
+    { id='revision',                            gr='mpKeywords', ng='mpNumber' },
+    { id='epoch',                               gr='mpKeywords', ng='mpNumber' },
     { id='conflicts',                  pre='1', gr='mpKeywords' },
     { id='replaced_by',                         gr='mpKeywords' },
     { id='categories',                 pre='1', gr='mpKeywords' },
@@ -173,13 +173,13 @@ local keywords = {
     { id='cvs.root',                            gr='mpKeywords' },
     { id='cvs.password',                        gr='mpKeywords' },
     { id='cvs.tag',                             gr='mpKeywords' },
-    { id='cvs.date',                            gr='mpKeywords' },
+    { id='cvs.date',                            gr='mpKeywords', ng='mpNumber' },
     { id='cvs.module',                          gr='mpKeywords' },
     { id='svn.url',                             gr='mpKeywords' },
-    { id='svn.revision',                        gr='mpKeywords' },
+    { id='svn.revision',                        gr='mpKeywords', ng='mpNumber' },
     { id='svn.method',                          gr='mpKeywords' },
     { id='bzr.url',                             gr='mpKeywords' },
-    { id='bzr.revision',                        gr='mpKeywords' },
+    { id='bzr.revision',                        gr='mpKeywords', ng='mpNumber' },
     { id='git.url',                             gr='mpKeywords' },
     { id='git.branch',                          gr='mpKeywords' },
     { id='hg.url',                              gr='mpKeywords' },
@@ -258,8 +258,8 @@ local keywords = {
     { id='compiler.blacklist',         pre='1', gr='mpKeywords' },
     { id='compiler.whitelist',                  gr='mpKeywords' },
     { id='compiler.fallback',          pre='1', gr='mpKeywords' },
-    { id='compiler.c_standard',                 gr='mpKeywords' },
-    { id='compiler.cxx_standard',               gr='mpKeywords' },
+    { id='compiler.c_standard',                 gr='mpKeywords', ng='mpNumber' },
+    { id='compiler.cxx_standard',               gr='mpKeywords', ng='mpNumber' },
 
     -- Automake, autoconf annd autoreconf keywords
 
@@ -410,7 +410,7 @@ local keywords = {
     { id='ui_msg',                              gr='mpTcl', opts='contained' },
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
 
-    -- Revision       0
+    -- Revision       1
     -- Revision date: 2021-10-11
     --
     -- PORT GROUPS
@@ -440,14 +440,14 @@ local keywords = {
 
     -- bazel keywords
 
-    { id='bazel.version',                       gr='mpKeywords' },
-    { id='bazel.min_xcode',                     gr='mpKeywords' },
+    { id='bazel.version',                       gr='mpKeywords', ng='mpNumber' },
+    { id='bazel.min_xcode',                     gr='mpKeywords', ng='mpNumber' },
     { id='bazel.run_bazel_fetch',               gr='mpKeywords', ng='mpBool' },
-    { id='bazel.max_idle_secs',                 gr='mpKeywords' },
-    { id='bazel.max_cpu_fraction',              gr='mpKeywords' },
-    { id='bazel.max_ram_fraction',              gr='mpKeywords' },
+    { id='bazel.max_idle_secs',                 gr='mpKeywords', ng='mpNumber' },
+    { id='bazel.max_cpu_fraction',              gr='mpKeywords', ng='mpNumber' },
+    { id='bazel.max_ram_fraction',              gr='mpKeywords', ng='mpNumber' },
     { id='bazel.limit_build_jobs',              gr='mpKeywords', ng='mpBool' },
-    { id='bazel.cxx_standard',                  gr='mpKeywords' },
+    { id='bazel.cxx_standard',                  gr='mpKeywords', ng='mpNumber' },
     { id='bazel.python_version',                gr='mpKeywords' },
     { id='bazel.build_cmd',            pre='1', gr='mpKeywords' },
     { id='bazel.build_cmd_opts',       pre='1', gr='mpKeywords' },
@@ -472,6 +472,12 @@ local keywords = {
     { id='bitbucket.tarball_from',              gr='mpKeywords' },
     { id='bitbucket.livecheck_branch',          gr='mpKeywords' },
     { id='bitbucket.setup',                     gr='mpKeywords' },
+
+    -- boost keywords
+
+    { id='boost.version',                       gr='mpKeywords', ng='mpNumber' },
+    { id='boost.depends_type',                  gr='mpKeywords' },
+    { id='boost.require_numpy',                 gr='mpKeywords', ng='mpBool' },
 
     -- cargo keywords
 
@@ -511,14 +517,14 @@ local keywords = {
     -- deprecated keywords
 
     { id='deprecated.maximum_xcodeversion',     gr='mpKeywords' },
-    { id='deprecated.maximum_osmajor',          gr='mpKeywords' },
+    { id='deprecated.maximum_osmajor',          gr='mpKeywords', ng='mpNumber' },
     { id='deprecated.upstream_support',         gr='mpKeywords', ng='mpBool' },
     { id='deprecated.macports_support',         gr='mpKeywords', ng='mpBool' },
     { id='deprecated.eol_version',              gr='mpKeywords', ng='mpBool' },
 
     -- developerversion keywords
 
-    { id='minimum_developerversions',           gr='mpKeywords' },
+    { id='minimum_developerversions',           gr='mpKeywords', ng='mpNumber' },
 
     -- github keywords
 
@@ -583,17 +589,17 @@ local keywords = {
 
     -- java keywords
 
-    { id='java.version',                        gr='mpKeywords' },
+    { id='java.version',                        gr='mpKeywords', ng='mpNumber' },
     { id='java.home',                           gr='mpKeywords' },
     { id='java.fallback',                       gr='mpKeywords' },
 
     -- legacysupport (1.0 and 1.1) keywords
 
-    { id='legacysupport.newest_darwin_requires_legacy', gr='mpKeywords' },
+    { id='legacysupport.newest_darwin_requires_legacy', gr='mpKeywords', ng='mpNumber' },
     { id='legacysupport.header_search',         gr='mpKeywords' },
-    { id='legacysupport.library_name',          gr='mpKeywords' },
     { id='legacysupport.use_static',            gr='mpKeywords', ng='mpBool' },
     { id='legacysupport.redirect_bins',         gr='mpKeywords' },
+    { id='legacysupport.use_mp_libcxx',         gr='mpKeywords', ng='mpBool'},
 
     -- makefile keywords
 
@@ -650,7 +656,7 @@ local keywords = {
 
     -- old_openssl keywords
 
-    { id='openssl.branch',                      gr='mpKeywords' },
+    { id='openssl.branch',                      gr='mpKeywords', ng='mpNumber' },
     { id='openssl.includedir',                  gr='mpKeywords' },
     { id='openssl.libdir',                      gr='mpKeywords' },
     { id='openssl.configure',                   gr='mpKeywords' },
@@ -658,8 +664,8 @@ local keywords = {
     -- perl5 keywords
 
     { id='perl5.setup',                         gr='mpKeywords' },
-    { id='perl5.branches',                      gr='mpKeywords' },
-    { id='perl5.default_branch',                gr='mpKeywords' },
+    { id='perl5.branches',                      gr='mpKeywords', ng='mpNumber' },
+    { id='perl5.default_branch',                gr='mpKeywords', ng='mpNumber' },
     { id='perl5.default_variant',               gr='mpKeywords' },
     { id='perl5.variant',                       gr='mpKeywords' },
     { id='perl5.set_default_variant',           gr='mpKeywords' },
@@ -678,8 +684,8 @@ local keywords = {
 
     -- php (1.1) keywords
 
-    { id='php.branch',                          gr='mpKeywords' },
-    { id='php.branches',                        gr='mpKeywords' },
+    { id='php.branch',                          gr='mpKeywords', ng='mpNumber' },
+    { id='php.branches',                        gr='mpKeywords', ng='mpNumber' },
     { id='php.latest_stable_branch',            gr='mpKeywords' },
     { id='php.default_branch',                  gr='mpKeywords' },
     { id='php.rootname',                        gr='mpKeywords' },
@@ -688,7 +694,7 @@ local keywords = {
     { id='php.extensions',                      gr='mpKeywords' },
     { id='php.extensions.zend',                 gr='mpKeywords' },
     { id='php.build_dirs',                      gr='mpKeywords' },
-    { id='php.pecl',                            gr='mpKeywords' },
+    { id='php.pecl',                            gr='mpKeywords', ng='mpBool' },
     { id='php.pecl.name',                       gr='mpKeywords' },
     { id='php.pecl.prerelease',                 gr='mpKeywords' },
     { id='php.pecl.regex',                      gr='mpKeywords' },
@@ -706,8 +712,8 @@ local keywords = {
     -- python keywords
 
     { id='python.rootname',                     gr='mpKeywords' },
-    { id='python.versions',                     gr='mpKeywords' },
-    { id='python.default_version',              gr='mpKeywords' },
+    { id='python.versions',                     gr='mpKeywords', ng='mpNumber' },
+    { id='python.default_version',              gr='mpKeywords', ng='mpNumber' },
     { id='python.consistent_destroot',          gr='mpKeywords', ng='mpBool' },
     { id='python.branch',                       gr='mpKeywords' },
     { id='python.prefix',                       gr='mpKeywords' },
@@ -743,12 +749,12 @@ local keywords = {
     { id='qt5.depends_build_component',         gr='mpKeywords' },
     { id='qt5.depends_runtime_component',       gr='mpKeywords' },
     { id='qt5.kde_variant',                     gr='mpKeywords' },
-    { id='qt5.min_version',                     gr='mpKeywords' },
+    { id='qt5.min_version',                     gr='mpKeywords', ng='mpNumber' },
 
     -- ruby keywords
 
-    { id='ruby.branch',                         gr='mpKeywords' },
-    { id='ruby.branches',                       gr='mpKeywords' },
+    { id='ruby.branch',                         gr='mpKeywords', ng='mpNumber' },
+    { id='ruby.branches',                       gr='mpKeywords', ng='mpNumber' },
     { id='ruby.link_binaries',                  gr='mpKeywords', ng='mpBool' },
     { id='ruby.link_binaries_suffix',           gr='mpKeywords' },
     { id='ruby.version',                        gr='mpKeywords' },
@@ -802,20 +808,20 @@ local keywords = {
     -- waf keywords
 
     { id='waf.python',                          gr='mpKeywords' },
-    { id='waf.python_branch',                   gr='mpKeywords' },
+    { id='waf.python_branch',                   gr='mpKeywords', ng='mpNumber' },
     { id='waf.python_version',                  gr='mpKeywords' },
 
     -- wxWidgets keywords
 
     { id='wxWidgets.name',                      gr='mpKeywords' },
     { id='wxWidgets.port',                      gr='mpKeywords' },
-    { id='wxWidgets.version',                   gr='mpKeywords' },
+    { id='wxWidgets.version',                   gr='mpKeywords', ng='mpNumber' },
     { id='wxWidgets.prefix',                    gr='mpKeywords' },
     { id='wxWidgets.wxdir',                     gr='mpKeywords' },
     { id='wxWidgets.wxconfig',                  gr='mpKeywords' },
     { id='wxWidgets.wxrc',                      gr='mpKeywords' },
     { id='wxWidgets.sdk',                       gr='mpKeywords' },
-    { id='wxWidgets.macosx_version_min',        gr='mpKeywords' },
+    { id='wxWidgets.macosx_version_min',        gr='mpKeywords', ng='mpNumber' },
     { id='wxWidgets.use',                       gr='mpKeywords' },
 
     -- x11font keywords
@@ -837,12 +843,12 @@ local keywords = {
     -- xcode_workaround keywords
 
     { id='xcode_workaround.type',               gr='mpKeywords' },
-    { id='xcode_workaround.fixed_xcode_version',gr='mpKeywords' },
-    { id='xcode_workaround.os_versions',        gr='mpKeywords' },
+    { id='xcode_workaround.fixed_xcode_version',gr='mpKeywords', ng='mpNumber' },
+    { id='xcode_workaround.os_versions',        gr='mpKeywords', ng='mpNumber' },
 
     -- xcodeversion keywords
 
-    { id='minimum_xcodeversions',               gr='mpKeywords' },
+    { id='minimum_xcodeversions',               gr='mpKeywords', ng='mpNumber' },
 
     -- xmlcatalog
 
@@ -866,7 +872,8 @@ highlight('mpComment',             'Comment')
 highlight('mpVariable',            'Identifier')
 highlight('mpString',              'String')
 
-highlight('mpBoolKeywords',        'Special')
+highlight('mpBoolKeywords',        'Boolean')
+highlight('mpNumber',              'Number')
 highlight('mpChecksumsType',       'Special')
 highlight('mpDescription',         'String')
 highlight('mpConfEntries',         'String')

@@ -1,6 +1,8 @@
 " Misc
 syn region   mpBool            matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpBoolKeywords
 syn keyword  mpBoolKeywords    yes no contained
+syn match    mpNumber          "\(\d\+\|\s\d\+\)\+" contained
+syn match    mpNumber          "\(\(\d\+\|\s\d\+\)\(\d\|-\|_\|[.]\)*\d\+\)\+" contained
 syn match    mpVariable        "${[^}]*}"
 syn match    mpVariable        "{\*}"
 syn region   mpString          start=+\(^\|\s\)"+ end=+"+ skip=+\\\\\|\\"+ 
