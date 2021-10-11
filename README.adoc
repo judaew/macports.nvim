@@ -42,6 +42,6 @@ Your PR's welcomed with open hearts.
 
 == TODO
 
-- [ ] Add keywords from all Port Groups
+- [x] Add keywords from all Port Groups
 - [ ] Support completion for keywords
 - [ ] Linting with `port lint --nitpick`
