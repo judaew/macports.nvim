@@ -5,7 +5,7 @@ syn match    mpNumber          "\(\d\+\|\s\d\+\)\+" contained
 syn match    mpNumber          "\(\(\d\+\|\s\d\+\)\(\d\|-\|_\|[.]\)*\d\+\)\+" contained
 syn match    mpVariable        "${[^}]*}"
 syn match    mpVariable        "{\*}"
-syn region   mpString          start=+\(^\|\s\)"+ end=+"+ skip=+\\\\\|\\"+ 
+syn region   mpString          start=+\(^\|\s\)"+ end=+"+ skip=+\\\\\|\\"+ contains=mpVariable
 syn region   mpComment         start="^\s*\#" skip="\\$" end="$"
 syn region   mpPortGroup       matchgroup=Normal start="" end="$" contained contains=mpPortGroupName,mpNumber
 syn match    mpURL             "\<\w\+\>:\S\+" contained contains=mpVariable
