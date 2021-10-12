@@ -83,10 +83,9 @@ local function highlight(group, link)
 end
 
 local keywords = {
-    -- Revision:      3
-    -- Revision Date: 2021-10-11
-    --
-    -- GLOBAL KEYWORDS
+    -- +-----------------+
+    -- | GLOBAL KEYWORDS |
+    -- +-----------------+
 
     { id='PortSystem',                          gr='mpKeywords' },
     { id='PortGroup',                           gr='mpKeywords', ng='mpPortGroup' },
@@ -411,10 +410,9 @@ local keywords = {
     { id='ui_msg',                              gr='mpTcl', opts='contained' },
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
 
-    -- Revision       2
-    -- Revision date: 2021-10-11
-    --
-    -- PORT GROUPS
+    -- +-------------+
+    -- | PORT GROUPS |
+    -- +-------------+
 
     -- PortGroup names
 
