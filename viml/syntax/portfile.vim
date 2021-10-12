@@ -4,7 +4,9 @@ syn keyword  mpBoolKeywords    yes no contained
 syn match    mpNumber          "\<\d\+\(\(\.\|-\|_\)\d\+\)*\>"
 syn match    mpVariable        "${[^}]*}"
 syn match    mpVariable        "{\*}"
-syn region   mpString          start=+\(^\|\s\)"+ end=+"+ skip=+\\\\\|\\"+ contains=mpVariable
+syn region   mpString          start=+"+ end=+\("$\|"\s\)+ oneline contains=mpVariable
+syn region   mpString          start=+".*\\$+ end=+\("$\|"\s\)+ contains=mpVariable
+syn region   mpStringNotes     start=+\s\("\|{\)$+ end=+\(^"\|\s\+"\|^}\|\s\+}\)$+ skip="$" contained contains=mpVariable
 syn region   mpComment         start="^\s*\#" skip="\\$" end="$"
 syn region   mpPortGroup       matchgroup=Normal start="" end="$" contained contains=mpPortGroupName,mpNumber
 syn match    mpURL             "\<\w\+\>:\S\+" contained contains=mpVariable

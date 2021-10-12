@@ -158,7 +158,7 @@ local keywords = {
     { id='deactivate',                          gr='mpPhases', ng='mpPhaseBlock' },
     { id='pre-deactivate',                      gr='mpPhases', ng='mpPhaseBlock' },
     { id='post-deactivate',                     gr='mpPhases', ng='mpPhaseBlock' },
-    { id='notes',                               gr='mpPhases', ng='mpPhaseBlock' },
+    { id='notes',                               gr='mpPhases', ng='mpStringNotes' },
 
     -- Fetch phase keywords
 
@@ -942,6 +942,7 @@ highlight('mpNumber',              'Number')
 highlight('mpComment',             'Comment')
 highlight('mpVariable',            'Identifier')
 highlight('mpString',              'String')
+highlight('mpStringNotes',         'String')
 highlight('mpURL',                 'Underlined')
 highlight('mpTcl',                 'Keyword')
 
