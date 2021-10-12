@@ -608,6 +608,8 @@ local keywords = {
     { id='github.raw',                          gr='mpKeywords' },
     { id='github.master_sites',                 gr='mpKeywords' },
     { id='github.tarball_from',                 gr='mpKeywords' },
+    { id='github.livecheck.branch',             gr='mpKeywords' },
+    { id='github.livecheck.regex',              gr='mpKeywords' },
     { id='github.setup',                        gr='mpKeywords' },
 
     -- gitlab keywords
