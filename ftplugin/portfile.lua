@@ -5,6 +5,8 @@ if (vim.b.did_ftplugin ~= nil) then
 end
 vim.b.did_ftplugin = 1
 
+vim.api.nvim_command('setlocal iskeyword+=-,.')
+
 bo.modeline      = false
 bo.fileencoding  = 'utf-8'
 bo.expandtab     = true

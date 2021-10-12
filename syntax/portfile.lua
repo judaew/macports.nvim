@@ -1,7 +1,5 @@
 local api = vim.api
 
-api.nvim_command('setlocal iskeyword+=-,.')
-
 if (vim.b.current_syntax ~= nil) then
     vim.b.current_syntax = nil
 end
