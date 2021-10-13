@@ -95,7 +95,7 @@ local keywords = {
     { id='epoch',                               gr='mpKeywords' },
     { id='conflicts',                  pre='1', gr='mpKeywords' },
     { id='replaced_by',                         gr='mpKeywords' },
-    { id='categories',                 pre='1', gr='mpKeywords' },
+    { id='categories',                 pre='1', gr='mpKeywords', ng='mpCategories' },
     { id='supported_archs',            pre='1', gr='mpKeywords', ng="mpSupportedArchs" },
     { id='license',                    pre='1', gr='mpKeywords' },
     { id='license_noconflict',         pre='1', gr='mpKeywords' },
@@ -409,6 +409,60 @@ local keywords = {
     { id='ui_info',                             gr='mpTcl', opts='contained' },
     { id='ui_msg',                              gr='mpTcl', opts='contained' },
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
+
+    -- Categories names
+
+    { id='aqua',                                gr='mpCategoriesName', opts='contained' },
+    { id='archivers',                           gr='mpCategoriesName', opts='contained' },
+    { id='audio',                               gr='mpCategoriesName', opts='contained' },
+    { id='benchmarks',                          gr='mpCategoriesName', opts='contained' },
+    { id='cad',                                 gr='mpCategoriesName', opts='contained' },
+    { id='comms',                               gr='mpCategoriesName', opts='contained' },
+    { id='cross',                               gr='mpCategoriesName', opts='contained' },
+    { id='databases',                           gr='mpCategoriesName', opts='contained' },
+    { id='devel',                               gr='mpCategoriesName', opts='contained' },
+    { id='dotnet',                              gr='mpCategoriesName', opts='contained' },
+    { id='editors',                             gr='mpCategoriesName', opts='contained' },
+    { id='emulators',                           gr='mpCategoriesName', opts='contained' },
+    { id='erlang',                              gr='mpCategoriesName', opts='contained' },
+    { id='finance',                             gr='mpCategoriesName', opts='contained' },
+    { id='fuse',                                gr='mpCategoriesName', opts='contained' },
+    { id='games',                               gr='mpCategoriesName', opts='contained' },
+    { id='genealogy',                           gr='mpCategoriesName', opts='contained' },
+    { id='gis',                                 gr='mpCategoriesName', opts='contained' },
+    { id='gnome',                               gr='mpCategoriesName', opts='contained' },
+    { id='gnustep',                             gr='mpCategoriesName', opts='contained' },
+    { id='graphics',                            gr='mpCategoriesName', opts='contained' },
+    { id='irc',                                 gr='mpCategoriesName', opts='contained' },
+    { id='janet',                               gr='mpCategoriesName', opts='contained' },
+    { id='java',                                gr='mpCategoriesName', opts='contained' },
+    { id='kde',                                 gr='mpCategoriesName', opts='contained' },
+    { id='lang',                                gr='mpCategoriesName', opts='contained' },
+    { id='lua',                                 gr='mpCategoriesName', opts='contained' },
+    { id='mail',                                gr='mpCategoriesName', opts='contained' },
+    { id='math',                                gr='mpCategoriesName', opts='contained' },
+    { id='multimedia',                          gr='mpCategoriesName', opts='contained' },
+    { id='net',                                 gr='mpCategoriesName', opts='contained' },
+    { id='news',                                gr='mpCategoriesName', opts='contained' },
+    { id='ocaml',                               gr='mpCategoriesName', opts='contained' },
+    { id='office',                              gr='mpCategoriesName', opts='contained' },
+    { id='palm',                                gr='mpCategoriesName', opts='contained' },
+    { id='perl',                                gr='mpCategoriesName', opts='contained' },
+    { id='php',                                 gr='mpCategoriesName', opts='contained' },
+    { id='print',                               gr='mpCategoriesName', opts='contained' },
+    { id='pure',                                gr='mpCategoriesName', opts='contained' },
+    { id='python',                              gr='mpCategoriesName', opts='contained' },
+    { id='ruby',                                gr='mpCategoriesName', opts='contained' },
+    { id='scheme',                              gr='mpCategoriesName', opts='contained' },
+    { id='science',                             gr='mpCategoriesName', opts='contained' },
+    { id='security',                            gr='mpCategoriesName', opts='contained' },
+    { id='shells',                              gr='mpCategoriesName', opts='contained' },
+    { id='sysutils',                            gr='mpCategoriesName', opts='contained' },
+    { id='tex',                                 gr='mpCategoriesName', opts='contained' },
+    { id='textproc',                            gr='mpCategoriesName', opts='contained' },
+    { id='www',                                 gr='mpCategoriesName', opts='contained' },
+    { id='x11',                                 gr='mpCategoriesName', opts='contained' },
+    { id='xfce',                                gr='mpCategoriesName', opts='contained' },
 
     -- +-------------+
     -- | PORT GROUPS |
@@ -953,6 +1007,7 @@ highlight('mpPortGroupName',       'Constant')
 highlight('mpChecksumsType',       'Special')
 highlight('mpDescription',         'String')
 highlight('mpConfEntries',         'String')
+highlight('mpCategoriesName',      'Identifier')
 
 highlight('mpVariantRequires',    'Statement')
 highlight('mpVariantConflicts',   'Statement')

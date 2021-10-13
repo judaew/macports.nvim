@@ -10,7 +10,7 @@ syn region   mpStringNotes     start=+\s\("\|{\)$+ end=+\(^"\|\s\+"\|^}\|\s\+}\)
 syn region   mpComment         start="^\s*\#" skip="\\$" end="$"
 syn region   mpPortGroup       matchgroup=Normal start="" end="$" contained contains=mpPortGroupName,mpNumber
 syn match    mpURL             "\<\w\+\>:\S\+" contained contains=mpVariable
-
+syn region   mpCategories      matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpCategoriesName
 syn region   mpDescription     matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpVariable
 syn region   mpConfEntries     matchgroup=Normal start="" skip="\\$" end="$" contained contains=mpVariable
 syn region   mpSupportedArchs  matchgroup=Normal start="" end="$" contained contains=mpPlatformArch
