@@ -26,8 +26,20 @@ Plug 'judaew/macports.nvim'
 
 == Settings
 
+Completion with completefunc can trigger in insert mode with <C-x><C-u>. To
+enable, add the following option:
+
+[source]
+----
+-- For init.lua
+vim.g.macports_completefunc = 1
+
+" For init.vim
+let g:macports_completefunc = 1
+----
+
 Snippets are in the `../snippets` directory. To enable snippets for
-link:https://github.com/hrsh7th/vim-vsnip[vim-vsnip], add the following option:
+link:https://github.com/hrsh7th/vim-vsnip[vim-vsnip]:
 
 [source]
 ----
@@ -45,5 +57,5 @@ Your PR's welcomed with open hearts.
 == TODO
 
 - [x] Add keywords from all Port Groups
-- [ ] Support completion for keywords
+- [x] Support completion for keywords
 - [ ] Linting with `port lint --nitpick`

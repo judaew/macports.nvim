@@ -1,4 +1,5 @@
 local bo = vim.bo
+local current_path = vim.fn.expand('<sfile>:p:h:h')
 
 if (vim.b.did_ftplugin ~= nil) then
     vim.b.did_ftplugin = nil
@@ -15,7 +16,16 @@ bo.tabstop       = 4
 bo.softtabstop   = 4
 bo.commentstring = '# %s'
 
+-- Snippets
 if (vim.g.macports_snippets == 1) then
-    local current_path = vim.fn.expand('<sfile>:p:h:h')
     vim.b.vsnip_snippet_dir = current_path..'/snippets'
+end
+
+vim.g.macports_completefunc = 1
+
+-- Completion on the completefunc
+if (vim.g.macports_completefunc == 1) then
+    vim.g.macports_completefunc_keywords = current_path
+        ..'/dict/macports-keywords.txt'
+    vim.opt_local.completefunc = 'portfilecomplete#CompleteFA'
 end
