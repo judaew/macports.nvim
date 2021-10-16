@@ -567,24 +567,25 @@ local keywords = {
 
     { id='bazel.version',                       gr='mpKeywords' },
     { id='bazel.min_xcode',                     gr='mpKeywords' },
-    { id='bazel.run_bazel_fetch',               gr='mpKeywords', ng='mpBool' },
-    { id='bazel.max_idle_secs',                 gr='mpKeywords' },
-    { id='bazel.max_cpu_fraction',              gr='mpKeywords' },
-    { id='bazel.max_ram_fraction',              gr='mpKeywords' },
-    { id='bazel.limit_build_jobs',              gr='mpKeywords', ng='mpBool' },
-    { id='bazel.cxx_standard',                  gr='mpKeywords' },
-    { id='bazel.python_version',                gr='mpKeywords' },
     { id='bazel.build_cmd',            pre='1', gr='mpKeywords' },
     { id='bazel.build_cmd_opts',       pre='1', gr='mpKeywords' },
     { id='bazel.build_opts',           pre='1', gr='mpKeywords' },
     { id='bazel.build_target',         pre='1', gr='mpKeywords' },
+    { id='bazel.run_bazel_fetch',               gr='mpKeywords', ng='mpBool' },
     { id='bazel.post_build_cmd',       pre='1', gr='mpKeywords' },
+    { id='bazel.max_idle_secs',                 gr='mpKeywords' },
+    { id='bazel.max_cpu_fraction',              gr='mpKeywords' },
+    { id='bazel.max_ram_fraction',              gr='mpKeywords' },
+    { id='bazel.limit_build_jobs',              gr='mpKeywords', ng='mpBool' },
     { id='bazel.extra_build_cmd_opts', pre='1', gr='mpKeywords' },
     { id='bazel.extra_build_opts',     pre='1', gr='mpKeywords' },
     { id='bazel.configure_cmd',        pre='1', gr='mpKeywords' },
     { id='bazel.configure_args',       pre='1', gr='mpKeywords' },
     { id='bazel.configure_pre_args',   pre='1', gr='mpKeywords' },
-    { id='bazel.configure_path',       pre='1', gr='mpKeywords' },
+    { id='bazel.cxx_standard',                  gr='mpKeywords' },
+    { id='bazel.path',                          gr='mpKeywords' },
+    { id='bazel.python_version',                gr='mpKeywords' },
+    { id='bazel.fix_wheel_deployment_target',   gr='mpKeywords', ng='mpBool' },
 
     -- bitbucket keywords
 
@@ -617,16 +618,41 @@ local keywords = {
 
     -- cmake keywords
 
-    { id='cmake.out_of_source',                 gr='mpKeywords', ng='mpBool' },
     { id='cmake.build_dir',                     gr='mpKeywords' },
     { id='cmake.source_dir',                    gr='mpKeywords' },
-    { id='cmake.set_osx_architectures',         gr='mpKeywords', ng='mpBool' },
-    { id='cmake.build_type',                    gr='mpKeywords' },
     { id='cmake.generator',                     gr='mpKeywords' },
     { id='cmake.generator_blacklist',           gr='mpKeywords' },
-    { id='cmake.module_path',          pre='1', gr='mpKeywords' },
+    { id='cmake.build_type',                    gr='mpKeywords' },
     { id='cmake.install_prefix',       pre='1', gr='mpKeywords' },
     { id='cmake.install_rpath',        pre='1', gr='mpKeywords' },
+    { id='cmake.module_path',          pre='1', gr='mpKeywords' },
+    { id='cmake.out_of_source',                 gr='mpKeywords', ng='mpBool' },
+    { id='cmake.set_osx_architectures',         gr='mpKeywords', ng='mpBool' },
+    { id='cmake.set_c_standard',                gr='mpKeywords', ng='mpBool' },
+    { id='cmake.set_cxx_standard',              gr='mpKeywords', ng='mpBool' },
+
+    -- compiler_wrapper keywords
+
+    { id='compwrap.add_compiler_flags',         gr='mpKeywords', ng='mpBool' },
+    { id='compwrap.add_legacysupport_flags',    gr='mpKeywords', ng='mpBool' },
+    { id='compwrap.print_compiler_command',     gr='mpKeywords', ng='mpBool' },
+    { id='compwrap.append_arch_flags',          gr='mpKeywords', ng='mpBool' },
+    { id='compwrap.compiler_pre_flags',         gr='mpKeywords' },
+    { id='compwrap.compiler_post_flags',        gr='mpKeywords' },
+    { id='compwrap.compiler_args_forward',      gr='mpKeywords' },
+    { id='compwrap.compilers_to_wrap',          gr='mpKeywords' },
+    { id='compwrap.ccache_supported_compilers', gr='mpKeywords' },
+
+    -- compilers keywords
+
+    { id='compilers.variants',                  gr='mpKeywords' },
+    { id='compilers.gcc_variants',              gr='mpKeywords' },
+    { id='compilers.clear_archflags',           gr='mpKeywords' },
+    { id='compilers.allow_arguments_mismatch',  gr='mpKeywords', ng='mpBool' },
+
+    -- conflicts_build keyword
+
+    { id='conflicts_build',                     gr='mpKeywords' },
 
     -- crossbinutils keywords
 
@@ -636,6 +662,7 @@ local keywords = {
     -- crossgcc keywords
 
     { id='crossgcc.target',                     gr='mpKeywords' },
+    { id='crossgcc.languages',         pre='1', gr='mpKeywords' },
     { id='crossgcc.setup',                      gr='mpKeywords' },
     { id='crossgcc.setup_libc',                 gr='mpKeywords' },
 
@@ -650,6 +677,19 @@ local keywords = {
     -- developerversion keywords
 
     { id='minimum_developerversions',           gr='mpKeywords' },
+
+    -- gitea keywords
+
+    { id='gitea.author',                        gr='mpKeywords' },
+    { id='gitea.project',                       gr='mpKeywords' },
+    { id='gitea.version',                       gr='mpKeywords' },
+    { id='gitea.tag_prefix',                    gr='mpKeywords' },
+    { id='gitea.tag_suffix',                    gr='mpKeywords' },
+    { id='gitea.domain',                        gr='mpKeywords' },
+    { id='gitea.homepage',                      gr='mpKeywords' },
+    { id='gitea.master_sites',                  gr='mpKeywords' },
+    { id='gitea.livecheck.branch',              gr='mpKeywords' },
+    { id='gitea.livecheck.regex',               gr='mpKeywords' },
 
     -- github keywords
 
@@ -690,8 +730,11 @@ local keywords = {
 
     -- gnustep keywords
 
-    { id='gnustep.post_flags',                  gr='mpKeywords' },
     { id='gnustep.cc',                          gr='mpKeywords' },
+
+    -- gobject_introspection keywords
+
+    { id='gobject_introspection',               gr='mpKeywords', mp='mpBool' },
 
     -- golang keywords
 
@@ -702,8 +745,21 @@ local keywords = {
     { id='go.version',                          gr='mpKeywords' },
     { id='go.tag_prefix',                       gr='mpKeywords' },
     { id='go.tag_suffix',                       gr='mpKeywords' },
+    { id='go.bin',                              gr='mpKeywords' },
+    { id='go.vendors',                          gr='mpKeywords' },
     { id='go.setup',                            gr='mpKeywords' },
     { id='go.vendors',                          gr='mpKeywords' },
+
+    -- gpg_verify keywords
+
+    { id='gpg_verify.use_gpg_verification',     gr='mpKeywords', ng='mpBool' },
+    { id='gpg_verify.gpg',                      gr='mpKeywords' },
+    { id='gpg_verify.gpg_homedir',              gr='mpKeywords' },
+
+    -- haskell_stack keywords
+
+    { id='haskell_stack.system_ghc',            gr='mpKeywords', ng='mpBool' },
+    { id='haskell_stack.stack_root',            gr='mpKeywords' },
 
     -- hunspelldict keywords
 
@@ -723,17 +779,41 @@ local keywords = {
     -- legacysupport (1.0 and 1.1) keywords
 
     { id='legacysupport.newest_darwin_requires_legacy', gr='mpKeywords' },
-    { id='legacysupport.header_search',         gr='mpKeywords' },
     { id='legacysupport.use_static',            gr='mpKeywords', ng='mpBool' },
     { id='legacysupport.redirect_bins',         gr='mpKeywords' },
     { id='legacysupport.use_mp_libcxx',         gr='mpKeywords', ng='mpBool'},
+    { id='compiler.limit_flags',                gr='mpKeywords', ng='mpBool' },
+
+    -- linear_algebra keywords
+
+    { id='linalglib',                           gr='mpKeywords' },
+    { id='cmake_linalglib',                     gr='mpKeywords' },
+    { id='blas_only',                           gr='mpKeywords', ng='mpBool' },
+    { id='veclibfort',                          gr='mpKeywords', ng='mpBool' },
+    { id='linalg.setup',                        gr='mpKeywords' },
+
+    -- luarocks keywords
+
+    { id='luarocks.default_branch',             gr='mpKeywords' },
+    { id='luarocks.branch',                     gr='mpKeywords' },
+    { id='luarocks.branches',                   gr='mpKeywords' },
+    { id='luarocks.dependencies',               gr='mpKeywords' },
+    { id='luarocks.bin',                        gr='mpKeywords' },
+    { id='luarocks.bindir',                     gr='mpKeywords' },
+    { id='luarocks.rocksdir',                   gr='mpKeywords' },
+    { id='luarocks.suffix',                     gr='mpKeywords' },
+    { id='luarocks.link_binaries',              gr='mpKeywords', ng='mpBool' },
+    { id='luarocks.link_binaries_suffix',       gr='mpKeywords' },
+    { id='luarocks.setup',                      gr='mpKeywords' },
 
     -- makefile keywords
 
+    { id='makefile.override',          pre='1', gr='mpKeywords' },
     { id='makefile.has_destdir',                gr='mpKeywords', ng='mpBool' },
     { id='makefile.prefix_name',                gr='mpKeywords' },
-    { id='makefile.override',          pre='1', gr='mpKeywords' },
     { id='muniversal.arch_tools',               gr='mpKeywords' },
+    { id='compiler.log_verbose_output',         gr='mpKeywords', ng='mpBool' },
+    { id='compiler.limit_flags',                gr='mpKeywords' },
     { id='makefile.setup',                      gr='mpKeywords' },
 
     -- muniversal keywords
@@ -764,33 +844,36 @@ local keywords = {
 
     -- ocaml (1.0 and 1.1) keywords
 
+    { id='ocaml.bin',                           gr='mpKeywords' },
     { id='ocaml.build_type',                    gr='mpKeywords' },
     { id='ocaml.destroot_type',                 gr='mpKeywords' },
-    { id='ocaml.bin',                           gr='mpKeywords' },
     { id='ocaml.package_dir',                   gr='mpKeywords' },
     { id='ocaml.stublib_dir',                   gr='mpKeywords' },
     { id='ocaml.use_findlib',                   gr='mpKeywords', ng='mpBool' },
     { id='ocaml.setup',                         gr='mpKeywords' },
+    { id='oasis.setup',                         gr='mpKeywords' },
+    { id='oasis.build_docs',                    gr='mpKeywords', ng='mpBool' },
     { id='dune.root',                           gr='mpKeywords' },
     { id='dune.packages',                       gr='mpKeywords' },
     { id='dune.profile',                        gr='mpKeywords' },
     { id='dune.build.target',                   gr='mpKeywords' },
+    { id='topkg.setup',                         gr='mpKeywords' },
 
     -- octave keywords
 
     { id='octave.module',                       gr='mpKeywords' },
+    { id='octave.config_h',                     gr='mpKeywords', ng='mpBool' },
     { id='octave.setup',                        gr='mpKeywords' },
 
     -- old_openssl keywords
 
     { id='openssl.branch',                      gr='mpKeywords' },
-    { id='openssl.includedir',                  gr='mpKeywords' },
-    { id='openssl.libdir',                      gr='mpKeywords' },
+    { id='openssl.depends_type',                gr='mpKeywords' },
     { id='openssl.configure',                   gr='mpKeywords' },
 
     -- perl5 keywords
 
-    { id='perl5.setup',                         gr='mpKeywords' },
+    { id='perl5.branch',                        gr='mpKeywords' },
     { id='perl5.branches',                      gr='mpKeywords' },
     { id='perl5.default_branch',                gr='mpKeywords' },
     { id='perl5.default_variant',               gr='mpKeywords' },
@@ -801,17 +884,17 @@ local keywords = {
     { id='perl5.version',                       gr='mpKeywords' },
     { id='perl5.major',                         gr='mpKeywords' },
     { id='perl5.arch',                          gr='mpKeywords' },
-    { id='perl5.bin',                           gr='mpKeywords' },
     { id='perl5.lib',                           gr='mpKeywords' },
     { id='perl5.bindir',                        gr='mpKeywords' },
     { id='perl5.archlib',                       gr='mpKeywords' },
+    { id='perl5.bin',                           gr='mpKeywords' },
     { id='perl5.link_binaries',                 gr='mpKeywords', ng='mpBool' },
     { id='perl5.link_binaries_suffix',          gr='mpKeywords' },
     { id='perl5.use_module_build',              gr='mpKeywords' },
+    { id='perl5.setup',                         gr='mpKeywords' },
 
     -- php (1.1) keywords
 
-    { id='php.branch',                          gr='mpKeywords'},
     { id='php.branches',                        gr='mpKeywords' },
     { id='php.latest_stable_branch',            gr='mpKeywords' },
     { id='php.default_branch',                  gr='mpKeywords' },
@@ -823,8 +906,9 @@ local keywords = {
     { id='php.build_dirs',                      gr='mpKeywords' },
     { id='php.pecl',                            gr='mpKeywords', ng='mpBool' },
     { id='php.pecl.name',                       gr='mpKeywords' },
-    { id='php.pecl.prerelease',                 gr='mpKeywords' },
+    { id='php.pecl.prerelease',                 gr='mpKeywords', ng='mpBool' },
     { id='php.pecl.regex',                      gr='mpKeywords' },
+    { id='php.branch',                          gr='mpKeywords' },
     { id='php.config',                          gr='mpKeywords' },
     { id='php.extension_dir',                   gr='mpKeywords' },
     { id='php.ini',                             gr='mpKeywords' },
@@ -840,6 +924,7 @@ local keywords = {
 
     { id='python.rootname',                     gr='mpKeywords' },
     { id='python.versions',                     gr='mpKeywords' },
+    { id='python.version',                      gr='mpKeywords' },
     { id='python.default_version',              gr='mpKeywords' },
     { id='python.consistent_destroot',          gr='mpKeywords', ng='mpBool' },
     { id='python.branch',                       gr='mpKeywords' },
@@ -850,9 +935,10 @@ local keywords = {
     { id='python.include',                      gr='mpKeywords' },
     { id='python.pkgd',                         gr='mpKeywords' },
     { id='python.pep517',                       gr='mpKeywords', ng='mpBool' },
-    { id='python.add_archflags',                gr='mpKeywords' },
-    { id='python.set_compiler',                 gr='mpKeywords' },
-    { id='python.set_cxx_stdlib',               gr='mpKeywords' },
+    { id='python.add_dependencies',             gr='mpKeywords' },
+    { id='python.add_archflags',                gr='mpKeywords', ng='mpBool' },
+    { id='python.set_compiler',                 gr='mpKeywords', ng='mpBool' },
+    { id='python.set_cxx_stdlib',               gr='mpKeywords', ng='mpBool' },
     { id='python.set_sdkroot',                  gr='mpKeywords', ng='mpBool' },
     { id='python.link_binaries',                gr='mpKeywords', ng='mpBool' },
     { id='python.link_binaries_suffix',         gr='mpKeywords' },
@@ -865,9 +951,9 @@ local keywords = {
     { id='qt5.add_spec',                        gr='mpKeywords', ng='mpBool' },
     { id='qt5.debug_variant',                   gr='mpKeywords', ng='mpBool' },
     { id='qt5.top_level',                       gr='mpKeywords' },
-    { id='qt5.cxxflags',                        gr='mpKeywords' },
+    { id='qt5.cxxflags',               pre='1', gr='mpKeywords' },
     { id='qt5.ldflags',                         gr='mpKeywords' },
-    { id='qt5.frameworkpaths',                  gr='mpKeywords' },
+    { id='qt5.frameworkpaths',         pre='1', gr='mpKeywords' },
     { id='qt5.spec_cmd',                        gr='mpKeywords' },
 
     -- qt5 keywords
@@ -880,22 +966,24 @@ local keywords = {
 
     -- ruby keywords
 
+    { id='ruby.default_branch',                 gr='mpKeywords' },
     { id='ruby.branch',                         gr='mpKeywords' },
     { id='ruby.branches',                       gr='mpKeywords' },
-    { id='ruby.link_binaries',                  gr='mpKeywords', ng='mpBool' },
-    { id='ruby.link_binaries_suffix',           gr='mpKeywords' },
-    { id='ruby.version',                        gr='mpKeywords' },
+    { id='ruby.bin',                            gr='mpKeywords' },
     { id='ruby.rdoc',                           gr='mpKeywords' },
     { id='ruby.gem',                            gr='mpKeywords' },
     { id='ruby.rake',                           gr='mpKeywords' },
     { id='ruby.bindir',                         gr='mpKeywords' },
-    { id='ruby.gemdirprog_suffix',              gr='mpKeywords' },
-    { id='ruby.module',                         gr='mpKeywords' },
-    { id='ruby.project',                        gr='mpKeywords' },
-    { id='ruby.bin',                            gr='mpKeywords' },
+    { id='ruby.gemdir',                         gr='mpKeywords' },
+    { id='ruby.suffix',                         gr='mpKeywords' },
+    { id='ruby.api_version',                    gr='mpKeywords' },
     { id='ruby.lib',                            gr='mpKeywords' },
-    { id='ruby.arch',                           gr='mpKeywords' },
     { id='ruby.archlib',                        gr='mpKeywords' },
+    { id='ruby.version',                        gr='mpKeywords' },
+    { id='ruby.arch',                           gr='mpKeywords' },
+    { id='ruby.config_rubyprog_name',           gr='mpKeywords' },
+    { id='ruby.link_binaries',                  gr='mpKeywords', ng='mpBool' },
+    { id='ruby.link_binaries_suffix',           gr='mpKeywords' },
     { id='ruby.setup',                          gr='mpKeywords' },
 
     -- select keywords
@@ -927,16 +1015,16 @@ local keywords = {
     { id='texlive.formats',                     gr='mpKeywords' },
     { id='texlive.languages',                   gr='mpKeywords' },
     { id='texlive.maps',                        gr='mpKeywords' },
-    { id='texlive.forceupdatecnf',              gr='mpKeywords' },
+    { id='texlive.forceupdatecnf',              gr='mpKeywords', ng='mpBool' },
     { id='texlive.use_mktexlsr',                gr='mpKeywords', ng='mpBool' },
     { id='texlive.use_mktexlsr_on_deactivate',  gr='mpKeywords', ng='mpBool' },
     { id='texlive.texmfport',                   gr='mpKeywords' },
 
     -- waf keywords
 
-    { id='waf.python',                          gr='mpKeywords' },
     { id='waf.python_branch',                   gr='mpKeywords' },
     { id='waf.python_version',                  gr='mpKeywords' },
+    { id='waf.python',                          gr='mpKeywords' },
 
     -- wxWidgets keywords
 
@@ -958,9 +1046,9 @@ local keywords = {
     -- xcode keywords
 
     { id='xcode.project',                       gr='mpKeywords' },
-    { id='xcode.configuration',                 gr='mpKeywords' },
     { id='xcode.target',                        gr='mpKeywords' },
     { id='xcode.scheme',                        gr='mpKeywords' },
+    { id='xcode.configuration',                 gr='mpKeywords' },
     { id='xcode.build.settings',                gr='mpKeywords' },
     { id='xcode.destroot.type',                 gr='mpKeywords' },
     { id='xcode.destroot.path',                 gr='mpKeywords' },
