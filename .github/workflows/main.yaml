@@ -1,0 +1,22 @@
+name: "lint changes files"
+on: push
+
+jobs:
+  luacheck-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup "luarocks"
+        run: |
+          sudo apt update
+          sudo apt install -y luarocks
+
+      - name: Setup "luacheck"
+        run: |
+          sudo luarocks install luacheck
+
+      - name: Lint with "luacheck"
+        run: |
+          luacheck .
