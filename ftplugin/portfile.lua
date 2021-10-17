@@ -21,8 +21,6 @@ if (vim.g.macports_snippets == 1) then
     vim.b.vsnip_snippet_dir = current_path..'/snippets'
 end
 
-vim.g.macports_completefunc = 1
-
 -- Completion on the completefunc
 if (vim.g.macports_completefunc == 1) then
     vim.g.macports_completefunc_keywords = current_path
