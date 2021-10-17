@@ -7,16 +7,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup "luarocks"
-        run: |
-          sudo apt update
-          sudo apt install -y luarocks
-
-      - name: Setup "luacheck"
-        run: |
-          sudo luarocks install luacheck
-
-      - name: Lint with "luacheck"
-        run: |
-          luacheck .
+      - name: Luacheck Linter
+        uses: judaew/luacheck-action@v0.1.0-alpha
