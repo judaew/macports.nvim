@@ -23,7 +23,29 @@ end
 
 -- Completion on the completefunc
 if (vim.g.macports_completefunc == 1) then
-    vim.g.macports_completefunc_keywords = current_path
-        ..'/dict/macports-keywords.txt'
+    package.path = current_path..'/dict/?.lua;'..package.path
+    local keywords = require 'macports-keywords'
+
+    local size = 0
+    for _ in pairs(keywords) do
+        size = size + 1
+    end
+
+    local keywords_compl = ''
+
+    local i = 0
+    while i < size do
+        i = i + 1
+
+        local keyword, group
+        keyword   = keywords[i].id
+        group     = keywords[i].gr
+
+        if (group == 'mpKeywords') then
+            keywords_compl = keywords_compl .. ' ' .. keyword
+        end
+    end
+
+    vim.g.macports_completefunc_keywords = keywords_compl
     vim.opt_local.completefunc = 'portfilecomplete#CompleteFA'
 end

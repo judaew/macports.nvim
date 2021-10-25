@@ -1,6 +1,6 @@
 " See  https://vi.stackexchange.com/a/4585
 
-let s:matches = string(readfile(g:macports_completefunc_keywords))
+let s:matches = g:macports_completefunc_keywords
 
 function! portfilecomplete#CompleteFA(findstart, base)
     if a:findstart
