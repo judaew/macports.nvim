@@ -30,6 +30,7 @@ return {
     { id='depends_skip_archcheck',     pre='1', gr='mpKeywords' },
     { id='install.asroot',                      gr='mpKeywords', ng='mpBool' },
     { id='universal_variant',                   gr='mpKeywords', ng='mpBool' },
+    { id='installs_libs',                       gr='mpKeywords', ng='mpBool' },
 
     -- Checksums type keywords
 
@@ -302,6 +303,7 @@ return {
     -- Tcl and Tcl extensions keywords
 
     { id='set',                                 gr='mpKeywords' },
+    { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='set',                                 gr='mpTcl', opts='contained' },
     { id='xinstall',                            gr='mpTcl', opts='contained' },
     { id='fs-traverse',                         gr='mpTcl', opts='contained' },
