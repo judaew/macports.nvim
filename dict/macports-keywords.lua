@@ -307,7 +307,6 @@ return {
     { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
     { id='variant_set',                         gr='mpKeywords' },
-    { id='require_active_variants',             gr='mpKeywords' },
 
     { id='set',                                 gr='mpTcl', opts='contained' },
     { id='xinstall',                            gr='mpTcl', opts='contained' },
@@ -332,7 +331,6 @@ return {
     { id='ui_info',                             gr='mpTcl', opts='contained' },
     { id='ui_msg',                              gr='mpTcl', opts='contained' },
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
-    { id='require_active_variants',             gr='mpTcl', opts='contained' },
 
     -- Categories names
 
@@ -467,6 +465,7 @@ return {
     -- active_variants (1.1) keywords
 
     { id='active_variants',                     gr='mpKeywords' },
+    { id='require_active_variants',             gr='mpKeywords' },
 
     -- app keywords
 
