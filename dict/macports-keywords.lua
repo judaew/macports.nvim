@@ -169,6 +169,7 @@ return {
     { id='configure.universal_cppflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_cxxflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_ldflags',  pre='1', gr='mpKeywords' },
+    { id='configure.ccache',                    gr='mpKeywords', ng='mpBool' },
     { id='compiler.blacklist',         pre='1', gr='mpKeywords' },
     { id='compiler.whitelist',                  gr='mpKeywords' },
     { id='compiler.fallback',          pre='1', gr='mpKeywords' },
