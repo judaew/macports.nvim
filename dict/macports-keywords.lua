@@ -442,7 +442,7 @@ return {
     { id='obsolete',                            gr='mpPortGroupName', opts='contained' },
     { id='ocaml',                               gr='mpPortGroupName', opts='contained' },
     { id='octave',                              gr='mpPortGroupName', opts='contained' },
-    { id='old_openssl',                         gr='mpPortGroupName', opts='contained' },
+    { id='openssl',                             gr='mpPortGroupName', opts='contained' },
     { id='perl5',                               gr='mpPortGroupName', opts='contained' },
     { id='php',                                 gr='mpPortGroupName', opts='contained' },
     { id='pure',                                gr='mpPortGroupName', opts='contained' },
@@ -451,6 +451,7 @@ return {
     { id='qmake5',                              gr='mpPortGroupName', opts='contained' },
     { id='qt4',                                 gr='mpPortGroupName', opts='contained' },
     { id='qt5',                                 gr='mpPortGroupName', opts='contained' },
+    { id='qt6',                                 gr='mpPortGroupName', opts='contained' },
     { id='ruby',                                gr='mpPortGroupName', opts='contained' },
     { id='select',                              gr='mpPortGroupName', opts='contained' },
     { id='sourcehut',                           gr='mpPortGroupName', opts='contained' },
@@ -462,6 +463,7 @@ return {
     { id='xcode_workaround',                    gr='mpPortGroupName', opts='contained' },
     { id='xcodeversion',                        gr='mpPortGroupName', opts='contained' },
     { id='xmlcatalog',                          gr='mpPortGroupName', opts='contained' },
+    { id='yelp',                                gr='mpPortGroupName', opts='contained' },
 
     -- active_variants (1.1) keywords
 
@@ -789,7 +791,7 @@ return {
     { id='octave.config_h',                     gr='mpKeywords', ng='mpBool' },
     { id='octave.setup',                        gr='mpKeywords' },
 
-    -- old_openssl keywords
+    -- openssl keywords
 
     { id='openssl.branch',                      gr='mpKeywords' },
     { id='openssl.depends_type',                gr='mpKeywords' },
@@ -887,6 +889,11 @@ return {
     { id='qt5.depends_runtime_component',       gr='mpKeywords' },
     { id='qt5.kde_variant',                     gr='mpKeywords' },
     { id='qt5.min_version',                     gr='mpKeywords' },
+
+    -- qt6 keywords
+
+    { id='qt6.min_version',                     gr='mpKeywords' },
+    { id='qt_qmake_spec',                       gr='mpKeywords' },
 
     -- ruby keywords
 
@@ -989,7 +996,7 @@ return {
 
     { id='minimum_xcodeversions',               gr='mpKeywords' },
 
-    -- xmlcatalog
+    -- xmlcatalog keywords
 
     { id='xml.catalog',                         gr='mpKeywords' },
     { id='xml.addtocatalog',                    gr='mpKeywords' },
