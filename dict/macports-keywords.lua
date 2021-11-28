@@ -304,6 +304,7 @@ return {
     -- Tcl and Tcl extensions keywords
 
     { id='if',                                  gr='mpKeywords' },
+    { id='else',                                gr='mpKeywords' },
     { id='set',                                 gr='mpKeywords' },
     { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
