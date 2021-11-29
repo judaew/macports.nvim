@@ -76,6 +76,7 @@ return {
     { id='pre-deactivate',                      gr='mpPhases', ng='mpPhaseBlock' },
     { id='post-deactivate',                     gr='mpPhases', ng='mpPhaseBlock' },
     { id='notes',                               gr='mpPhases', ng='mpStringNotes' },
+    { id='notes-append',                        gr='mpPhases', ng='mpStringNotes' },
 
     -- Fetch phase keywords
 
@@ -305,6 +306,7 @@ return {
 
     { id='if',                                  gr='mpKeywords' },
     { id='else',                                gr='mpKeywords' },
+    { id='elseif',                              gr='mpKeywords' },
     { id='set',                                 gr='mpKeywords' },
     { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
