@@ -110,6 +110,7 @@ return {
     { id='extract.args',               pre='1', gr='mpKeywords' },
     { id='extract.pre_args',           pre='1', gr='mpKeywords' },
     { id='extract.post_args',          pre='1', gr='mpKeywords' },
+    { id='extract.dir',                         gr='mpKeywords', ng='mpBool' },
     { id='use_mkdir',                           gr='mpKeywords', ng='mpBool' },
     { id='use_7z',                              gr='mpKeywords', ng='mpBool' },
     { id='use_bzip2',                           gr='mpKeywords', ng='mpBool' },
@@ -133,6 +134,7 @@ return {
     { id='use_configure',                       gr='mpKeywords', ng='mpBool' },
     { id='configure.cmd',              pre='1', gr='mpKeywords' },
     { id='configure.env',              pre='1', gr='mpKeywords' },
+    { id='configure.dir',                       gr='mpKeywords' },
     { id='configure.cflags',           pre='1', gr='mpKeywords' },
     { id='configure.ldflags',          pre='1', gr='mpKeywords' },
     { id='configure.cppflags',         pre='1', gr='mpKeywords' },
@@ -215,6 +217,7 @@ return {
     { id='test.post_args',             pre='1', gr='mpKeywords'},
     { id='test.target',                pre='1', gr='mpKeywords'},
     { id='test.env',                   pre='1', gr='mpKeywords'},
+    { id='test.dir',                            gr='mpKeywords'},
     { id='test.asroot',                         gr='mpKeywords', ng='mpBool' },
 
     -- Destroot phase keywords
