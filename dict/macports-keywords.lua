@@ -311,6 +311,7 @@ return {
     { id='else',                                gr='mpKeywords' },
     { id='elseif',                              gr='mpKeywords' },
     { id='set',                                 gr='mpKeywords' },
+    { id='incr',                                gr='mpKeywords' },
     { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
     { id='variant_set',                         gr='mpKeywords' },
