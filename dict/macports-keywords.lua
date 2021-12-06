@@ -256,10 +256,12 @@ return {
     { id='solaris',                             gr='mpPlatformName', opts='contained' },
     { id='sunos',                               gr='mpPlatformName', opts='contained' },
 
+    { id='arm',                                 gr='mpPlatformArch', opts='contained' },
     { id='arm64',                               gr='mpPlatformArch', opts='contained' },
     { id='i386',                                gr='mpPlatformArch', opts='contained' },
     { id='ppc',                                 gr='mpPlatformArch', opts='contained' },
     { id='ppc64',                               gr='mpPlatformArch', opts='contained' },
+    { id='powerpc',                             gr='mpPlatformArch', opts='contained' },
     { id='x86_64',                              gr='mpPlatformArch', opts='contained' },
     { id='noarch',                              gr='mpPlatformArch', opts='contained' },
 
