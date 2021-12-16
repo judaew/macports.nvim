@@ -420,6 +420,7 @@ return {
     { id='conflicts_build',                     gr='mpPortGroupName', opts='contained' },
     { id='crossbinutils',                       gr='mpPortGroupName', opts='contained' },
     { id='crossgcc',                            gr='mpPortGroupName', opts='contained' },
+    { id='crossgdb',                            gr='mpPortGroupName', opts='contained' },
     { id='cxx11',                               gr='mpPortGroupName', opts='contained' },
     { id='debug',                               gr='mpPortGroupName', opts='contained' },
     { id='deprecated',                          gr='mpPortGroupName', opts='contained' },
@@ -600,6 +601,10 @@ return {
     { id='crossgcc.languages',         pre='1', gr='mpKeywords' },
     { id='crossgcc.setup',                      gr='mpKeywords' },
     { id='crossgcc.setup_libc',                 gr='mpKeywords' },
+
+    -- crossgdb keywords
+
+    { id='crossgdb.setup',                      gr='mpKeywords' },
 
     -- deprecated keywords
 
