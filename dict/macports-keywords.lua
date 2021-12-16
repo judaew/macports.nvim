@@ -314,11 +314,13 @@ return {
     { id='elseif',                              gr='mpKeywords' },
     { id='set',                                 gr='mpKeywords' },
     { id='incr',                                gr='mpKeywords' },
+    { id='switch',                              gr='mpKeywords' },
     { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
     { id='variant_set',                         gr='mpKeywords' },
 
     { id='set',                                 gr='mpTcl', opts='contained' },
+    { id='switch',                              gr='mpTcl', opts='contained' },
     { id='xinstall',                            gr='mpTcl', opts='contained' },
     { id='fs-traverse',                         gr='mpTcl', opts='contained' },
     { id='readdir',                             gr='mpTcl', opts='contained' },
