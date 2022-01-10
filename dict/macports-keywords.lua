@@ -322,6 +322,7 @@ return {
     { id='set',                                 gr='mpTcl', opts='contained' },
     { id='switch',                              gr='mpTcl', opts='contained' },
     { id='xinstall',                            gr='mpTcl', opts='contained' },
+    { id='exec',                                gr='mpTcl', opts='contained' },
     { id='fs-traverse',                         gr='mpTcl', opts='contained' },
     { id='readdir',                             gr='mpTcl', opts='contained' },
     { id='vercmp',                              gr='mpTcl', opts='contained' },
@@ -433,6 +434,7 @@ return {
     { id='github',                              gr='mpPortGroupName', opts='contained' },
     { id='gitlab',                              gr='mpPortGroupName', opts='contained' },
     { id='gnu_info',                            gr='mpPortGroupName', opts='contained' },
+    { id='gnuradio',                            gr='mpPortGroupName', opts='contained' },
     { id='gnustep',                             gr='mpPortGroupName', opts='contained' },
     { id='gobject_introspection',               gr='mpPortGroupName', opts='contained' },
     { id='golang',                              gr='mpPortGroupName', opts='contained' },
@@ -669,6 +671,11 @@ return {
     { id='gnu_info.dir',                        gr='mpKeywords' },
     { id='gnu_info.dirfile',                    gr='mpKeywords' },
     { id='gnu_info.install_info',               gr='mpKeywords' },
+
+    -- gnuradio keywords
+
+    { id='gnuradio.type',                       gr='mpKeywords' },
+    { id='gnuradio.python_version',             gr='mpKeywords' },
 
     -- gnustep keywords
 
