@@ -1,46 +1,9 @@
 return {
-    -- +-----------------+
-    -- | GLOBAL KEYWORDS |
-    -- +-----------------+
-
     { id='PortSystem',                          gr='mpKeywords' },
     { id='PortGroup',                           gr='mpKeywords', ng='mpPortGroup' },
-    { id='name',                                gr='mpKeywords' },
-    { id='version',                             gr='mpKeywords' },
-    { id='revision',                            gr='mpKeywords' },
-    { id='epoch',                               gr='mpKeywords' },
-    { id='conflicts',                  pre='1', gr='mpKeywords' },
-    { id='replaced_by',                         gr='mpKeywords' },
-    { id='categories',                 pre='1', gr='mpKeywords', ng='mpCategories' },
-    { id='supported_archs',            pre='1', gr='mpKeywords', ng="mpSupportedArchs" },
-    { id='license',                    pre='1', gr='mpKeywords' },
-    { id='license_noconflict',         pre='1', gr='mpKeywords' },
-    { id='maintainers',                         gr='mpKeywords' },
-    { id='description',                pre='1', gr='mpKeywords', ng='mpDescription' },
-    { id='long_description',           pre='1', gr='mpKeywords', ng='mpDescription' },
-    { id='homepage',                            gr='mpKeywords', ng='mpURL' },
-    { id='master_sites',               pre='1', gr='mpKeywords', ng='mpURL' },
-    { id='master_sites.mirror_subdir',          gr='mpKeywords' },
-    { id='patch_sites',                pre='1', gr='mpKeywords', ng='mpURL' },
-    { id='distfiles',                  pre='1', gr='mpKeywords' },
-    { id='distname',                            gr='mpKeywords' },
-    { id='dist_subdir',                         gr='mpKeywords' },
-    { id='checksums',                  pre='1', gr='mpKeywords', ng='mpChecksums' },
-    { id='worksrcdir',                          gr='mpKeywords' },
-    { id='depends_skip_archcheck',     pre='1', gr='mpKeywords' },
-    { id='install.asroot',                      gr='mpKeywords', ng='mpBool' },
-    { id='universal_variant',                   gr='mpKeywords', ng='mpBool' },
-    { id='installs_libs',                       gr='mpKeywords', ng='mpBool' },
-
-    -- Checksums type keywords
-
-    { id='md5',                                 gr='mpChecksumsType', opts='contained' },
-    { id='sha1',                                gr='mpChecksumsType', opts='contained' },
-    { id='rmd160',                              gr='mpChecksumsType', opts='contained' },
-    { id='sha256',                              gr='mpChecksumsType', opts='contained' },
-    { id='size',                                gr='mpChecksumsType', opts='contained' },
 
     -- Port phases keywords
+    -- ####################
 
     { id='fetch',                               gr='mpPhases', ng='mpPhaseBlock' },
     { id='pre-fetch',                           gr='mpPhases', ng='mpPhaseBlock' },
@@ -78,87 +41,213 @@ return {
     { id='notes',                               gr='mpPhases', ng='mpStringNotes' },
     { id='notes-append',                        gr='mpPhases', ng='mpStringNotes' },
 
-    -- Fetch phase keywords
+    -- portmain.tcl
+    -- ############
 
+    { id='name',                                gr='mpKeywords' },
+    { id='version',                             gr='mpKeywords' },
+    { id='revision',                            gr='mpKeywords' },
+    { id='epoch',                               gr='mpKeywords' },
+    { id='categories',                 pre='1', gr='mpKeywords', ng='mpCategories' },
+    { id='maintainers',                         gr='mpKeywords' },
+    { id='long_description',           pre='1', gr='mpKeywords', ng='mpDescription' },
+    { id='description',                pre='1', gr='mpKeywords', ng='mpDescription' },
+    { id='homepage',                            gr='mpKeywords', ng='mpURL' },
+    { id='license',                    pre='1', gr='mpKeywords' },
+    { id='conflicts',                  pre='1', gr='mpKeywords' },
+    { id='replaced_by',                         gr='mpKeywords' },
+    { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
+    { id='worksrcdir',                          gr='mpKeywords' },
+    { id='filesdir',                            gr='mpKeywords' },
+    { id='distname',                            gr='mpKeywords' },
+    { id='libpath',                             gr='mpKeywords' },
+    { id='distpath',                            gr='mpKeywords' },
+    -- 'platforms'
+    { id='default_variants',           pre='1', gr='mpKeywords', ng='mpDefaultVariants' },
+    { id='macosx_deployment_target',            gr='mpKeywords' },
+    { id='universal_variant',                   gr='mpKeywords' },
+    { id='universal_possible',                  gr='mpKeywords' },
+    { id='supported_archs',            pre='1', gr='mpKeywords', ng="mpSupportedArchs" },
+    { id='depends_skip_archcheck',     pre='1', gr='mpKeywords' },
+    { id='installs_libs',                       gr='mpKeywords', ng='mpBool' },
+    { id='license_noconflict',         pre='1', gr='mpKeywords' },
+
+    { id='compiler.cpath',                      gr='mpKeywords' },
+    { id='compiler.library_path',               gr='mpKeywords' },
+    { id='compiler.log_verbose_output',         gr='mpKeywords', ng='mpBool' },
+    { id='compiler.limit_flags',                gr='mpKeywords' },
+    { id='compiler.support_environment_paths',  gr='mpKeywords' },
+    { id='compiler.support_environment_sdkroot',gr='mpKeywords' },
+    { id='add_users',                           gr='mpKeywords' },
+    { id='use_xcode',                           gr='mpKeywords', ng='mpBool' },
+
+    -- Variant nextgroup keywords
+    { id='requires',                            gr='mpVariantRequires',  ng='mpVariantName', opts='contained' },
+    { id='conflicts',                           gr='mpVariantConflicts', ng='mpVariantName', opts='contained' },
+    { id='description',                         gr='mpVariantDescription',                   opts='contained' },
+
+
+
+    -- portdepends.tcl -- Dependencies keywords
+    -- ########################################
+
+    { id='depends_fetch',              pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_extract',            pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_patch',              pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_build',              pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_run',                pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_lib',                pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+    { id='depends_test',               pre='1', gr='mpKeywords', ng='mpDependsEntries' },
+
+    -- portfetch.tcl -- Fetch phase keywords
+    -- #####################################
+
+    { id='master_sites',               pre='1', gr='mpKeywords', ng='mpURL' },
+    { id='patch_sites',                pre='1', gr='mpKeywords', ng='mpURL' },
+    { id='extract.suffix',                      gr='mpKeywords' },
+    { id='distfiles',                  pre='1', gr='mpKeywords' },
+    { id='patchfiles',                 pre='1', gr='mpKeywords' },
+    { id='use_tar',                             gr='mpKeywords', ng='mpBool' },
+    { id='use_bzip2',                           gr='mpKeywords', ng='mpBool' },
+    { id='use_lzma',                            gr='mpKeywords', ng='mpBool' },
+    { id='use_xz',                              gr='mpKeywords', ng='mpBool' },
+    { id='use_zip',                             gr='mpKeywords', ng='mpBool' },
+    { id='use_7z',                              gr='mpKeywords', ng='mpBool' },
+    { id='use_lzip',                            gr='mpKeywords', ng='mpBool' },
+    { id='use_dmg',                             gr='mpKeywords', ng='mpBool' },
+    { id='dist_subdir',                         gr='mpKeywords' },
     { id='fetch.type',                          gr='mpKeywords' },
     { id='fetch.user',                          gr='mpKeywords' },
     { id='fetch.password',                      gr='mpKeywords' },
     { id='fetch.use_epsv',                      gr='mpKeywords', ng='mpBool' },
     { id='fetch.ignore_sslcert',                gr='mpKeywords', ng='mpBool' },
+    { id='fetch.user_agent',                    gr='mpKeywords', ng='mpBool' },
+    { id='master_sites.mirror_subdir',          gr='mpKeywords' },
+    { id='patch_sites.mirror_subdir',           gr='mpKeywords' },
+    { id='bzr.url',                             gr='mpKeywords', ng='mpURL' },
+    { id='bzr.revision',                        gr='mpKeywords' },
+    { id='cvs.module',                          gr='mpKeywords' },
     { id='cvs.root',                            gr='mpKeywords' },
     { id='cvs.password',                        gr='mpKeywords' },
-    { id='cvs.tag',                             gr='mpKeywords' },
     { id='cvs.date',                            gr='mpKeywords' },
-    { id='cvs.module',                          gr='mpKeywords' },
+    { id='cvs.tag',                             gr='mpKeywords' },
+    { id='cvs.method',                          gr='mpKeywords' },
     { id='svn.url',                             gr='mpKeywords', ng='mpURL' },
     { id='svn.revision',                        gr='mpKeywords' },
     { id='svn.method',                          gr='mpKeywords' },
-    { id='bzr.url',                             gr='mpKeywords', ng='mpURL' },
-    { id='bzr.revision',                        gr='mpKeywords' },
+    { id='git.cmd',                             gr='mpKeywords', ng='mpURL' },
     { id='git.url',                             gr='mpKeywords', ng='mpURL' },
     { id='git.branch',                          gr='mpKeywords' },
+    { id='hg.cmd',                              gr='mpKeywords', ng='mpURL' },
     { id='hg.url',                              gr='mpKeywords', ng='mpURL' },
     { id='hg.tag',                              gr='mpKeywords' },
 
-    -- Extract phase keywords
+    -- portchecksum.tcl
+    -- ################
 
-    { id='extract.asroot',                      gr='mpKeywords', ng='mpBool' },
-    { id='extract.suffix',                      gr='mpKeywords' },
-    { id='extract.mkdir',                       gr='mpKeywords', ng='mpBool' },
-    { id='extract.cmd',                         gr='mpKeywords' },
+    { id='checksums',                  pre='1', gr='mpKeywords', ng='mpChecksums' },
+    { id='checksum.skip',                       gr='mpKeywords', ng='mpBool' },
+
+    -- Checksums type keywords
+    { id='sha256',                              gr='mpChecksumsType', opts='contained' },
+    { id='rmd160',                              gr='mpChecksumsType', opts='contained' },
+    { id='sha1',                                gr='mpChecksumsType', opts='contained' },
+    { id='md5',                                 gr='mpChecksumsType', opts='contained' },
+    { id='size',                                gr='mpChecksumsType', opts='contained' },
+
+    -- portextrac.tcl -- Extract phase keywords
+    -- ########################################
+
     { id='extract.only',               pre='1', gr='mpKeywords' },
+    { id='extract.mkdir',                       gr='mpKeywords', ng='mpBool' },
+    { id='extract.asroot',                      gr='mpKeywords', ng='mpBool' },
+    { id='extract.dir',                         gr='mpKeywords', ng='mpBool' },
+    { id='extract.cmd',                         gr='mpKeywords' },
     { id='extract.args',               pre='1', gr='mpKeywords' },
     { id='extract.pre_args',           pre='1', gr='mpKeywords' },
     { id='extract.post_args',          pre='1', gr='mpKeywords' },
-    { id='extract.dir',                         gr='mpKeywords', ng='mpBool' },
-    { id='use_mkdir',                           gr='mpKeywords', ng='mpBool' },
-    { id='use_7z',                              gr='mpKeywords', ng='mpBool' },
-    { id='use_bzip2',                           gr='mpKeywords', ng='mpBool' },
-    { id='use_lzip',                            gr='mpKeywords', ng='mpBool' },
-    { id='use_lzma',                            gr='mpKeywords', ng='mpBool' },
-    { id='use_tar',                             gr='mpKeywords', ng='mpBool' },
-    { id='use_zip',                             gr='mpKeywords', ng='mpBool' },
-    { id='use_xz',                              gr='mpKeywords', ng='mpBool' },
-    { id='use_dmg',                             gr='mpKeywords', ng='mpBool' },
 
-    -- Patch phase keywords
+    -- portpatch.tcl -- Patch phase keywords
+    -- #####################################
 
+    { id='patch.asroot',                        gr='mpKeywords', ng='mpBool' },
     { id='patch.dir',                           gr='mpKeywords' },
+    { id='patch.cmd',                           gr='mpKeywords' },
     { id='patch.args',                          gr='mpKeywords' },
     { id='patch.pre_args',                      gr='mpKeywords' },
     { id='patch.post_args',                     gr='mpKeywords' },
-    { id='patchfiles',                 pre='1', gr='mpKeywords' },
 
-    -- Configure phase keywords
+    -- portconfigure.tcl -- Configure phase keywords
+    -- #############################################
 
-    { id='use_configure',                       gr='mpKeywords', ng='mpBool' },
-    { id='configure.cmd',              pre='1', gr='mpKeywords' },
-    { id='configure.env',              pre='1', gr='mpKeywords' },
-    { id='configure.dir',                       gr='mpKeywords' },
-    { id='configure.cflags',           pre='1', gr='mpKeywords' },
-    { id='configure.ldflags',          pre='1', gr='mpKeywords' },
-    { id='configure.cppflags',         pre='1', gr='mpKeywords' },
+    -- C++ / Objective C++
+    { id='configure.cxx',              pre='1', gr='mpKeywords' },
+    { id='configure.cxx_archflags',    pre='1', gr='mpKeywords' },
+    { id='configure.cxx_stdlib',       pre='1', gr='mpKeywords' },
     { id='configure.cxxflags',         pre='1', gr='mpKeywords' },
-    { id='configure.objcflags',        pre='1', gr='mpKeywords' },
-    { id='configure.fflags',           pre='1', gr='mpKeywords' },
-    { id='configure.fcflags',          pre='1', gr='mpKeywords' },
-    { id='configure.f90flags',         pre='1', gr='mpKeywords' },
+    { id='configure.objcxx',           pre='1', gr='mpKeywords' },
+    { id='configure.objcxx_archflags', pre='1', gr='mpKeywords' },
+    { id='configure.objcxxflags',      pre='1', gr='mpKeywords' },
+    { id='configure.universal_cxxflags', pre='1', gr='mpKeywords' },
+    { id='configure.universal_objcxxflags', pre='1', gr='mpKeywords' },
+
+    -- Fortran
+    { id='compiler.require_fortran',            gr='mpKeywords', ng='mpBool' },
+    { id='compiler.fortran_fallback',           gr='mpKeywords' },
+
+
+    { id='configure.env',              pre='1', gr='mpKeywords' },
     { id='configure.args',             pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.pre_args',         pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.post_args',        pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='configure.cmd',              pre='1', gr='mpKeywords' },
+    { id='configure.nice',             pre='1', gr='mpKeywords' },
+    { id='configure.dir',                       gr='mpKeywords' },
+
+    -- Automake, autoconf annd autoreconf keywords
+    { id='autoreconf.dir',                      gr='mpKeywords' },
+    { id='autoreconf.env',                      gr='mpKeywords' },
+    { id='autoreconf.args',                     gr='mpKeywords' },
+    { id='autoreconf.pre_args',                 gr='mpKeywords' },
+    { id='autoreconf.post_args',                gr='mpKeywords' },
+    { id='autoconf.dir',                        gr='mpKeywords' },
+    { id='autoconf.env',                        gr='mpKeywords' },
+    { id='autoconf.args',                       gr='mpKeywords' },
+    { id='autoconf.pre_args',                   gr='mpKeywords' },
+    { id='autoconf.post_args',                  gr='mpKeywords' },
+    { id='automake.dir',                        gr='mpKeywords' },
+    { id='automake.args',                       gr='mpKeywords' },
+    { id='xmkmf.cmd',                           gr='mpKeywords' },
+    { id='xmkmf.dir',                           gr='mpKeywords' },
+
+    { id='use_configure',                       gr='mpKeywords', ng='mpBool' },
+    { id='use_autoreconf',                      gr='mpKeywords', ng='mpBool' },
+    { id='use_automake',                        gr='mpKeywords', ng='mpBool' },
+    { id='use_autoconf',                        gr='mpKeywords', ng='mpBool' },
+    { id='use_xmkmf',                           gr='mpKeywords', ng='mpBool' },
+
+    { id='autoreconf.cmd',                      gr='mpKeywords' },
+    { id='automake.cmd',                        gr='mpKeywords' },
+    { id='autoconf.cmd',                        gr='mpKeywords' },
+    { id='xmkmf.cmd',                           gr='mpKeywords' },
+
     { id='configure.asroot',                    gr='mpKeywords', ng='mpBool' },
+    { id='configure.m32',                       gr='mpKeywords' },
+    { id='configure.m64',                       gr='mpKeywords' },
+    { id='configure.march',                     gr='mpKeywords' },
+    { id='configure.mtune',                     gr='mpKeywords' },
     { id='configure.optflags',         pre='1', gr='mpKeywords' },
+    { id='configure.cflags',           pre='1', gr='mpKeywords' },
+    { id='configure.objcflags',        pre='1', gr='mpKeywords' },
+    { id='configure.cppflags',         pre='1', gr='mpKeywords' },
+    { id='configure.ldflags',          pre='1', gr='mpKeywords' },
+    { id='configure.libs',             pre='1', gr='mpKeywords' },
+    { id='configure.fflags',           pre='1', gr='mpKeywords' },
+    { id='configure.f90flags',         pre='1', gr='mpKeywords' },
+    { id='configure.fcflags',          pre='1', gr='mpKeywords' },
     { id='configure.classpath',        pre='1', gr='mpKeywords' },
-    { id='configure.macosx_deployment_target', pre='1', gr='mpKeywords' },
-    { id='configure.cc',               pre='1', gr='mpKeywords' },
-    { id='configure.cpp',              pre='1', gr='mpKeywords' },
-    { id='configure.cxx',              pre='1', gr='mpKeywords' },
-    { id='configure.objc',             pre='1', gr='mpKeywords' },
-    { id='configure.fc',               pre='1', gr='mpKeywords' },
-    { id='configure.f77',              pre='1', gr='mpKeywords' },
-    { id='configure.f90',              pre='1', gr='mpKeywords' },
-    { id='configure.javac',            pre='1', gr='mpKeywords' },
-    { id='configure.compiler',         pre='1', gr='mpKeywords' },
+
+    -- tool section
     { id='configure.perl',                      gr='mpKeywords' },
     { id='configure.python',                    gr='mpKeywords' },
     { id='configure.ruby',                      gr='mpKeywords' },
@@ -167,85 +256,190 @@ return {
     { id='configure.bison',                     gr='mpKeywords' },
     { id='configure.pkg_config',       pre='1', gr='mpKeywords' },
     { id='configure.pkg_config_path',  pre='1', gr='mpKeywords' },
+
+    { id='configure.build_arch',                gr='mpKeywords' },
+    { id='configure.ld_archflags',              gr='mpKeywords' },
+    { id='configure.sdk_version',               gr='mpKeywords' },
+    { id='configure.sdkroot',                   gr='mpKeywords' },
+    { id='configure.sysroot',                   gr='mpKeywords' },
+    { id='configure.developer_dir',             gr='mpKeywords' },
+    { id='configure.universal_archs',  pre='1', gr='mpKeywords' },
     { id='configure.universal_args',   pre='1', gr='mpKeywords' },
     { id='configure.universal_cflags', pre='1', gr='mpKeywords' },
+    { id='configure.universal_objcflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_cppflags', pre='1', gr='mpKeywords' },
-    { id='configure.universal_cxxflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_ldflags',  pre='1', gr='mpKeywords' },
+
+    -- Select a distinct compiler
     { id='configure.ccache',                    gr='mpKeywords', ng='mpBool' },
-    { id='configure.checks.implicit_function_declaration.whitelist', pre='1', gr='mpKeywords' },
+    { id='configure.distcc',                    gr='mpKeywords', ng='mpBool' },
+    { id='configure.pipe',                      gr='mpKeywords', ng='mpBool' },
+    { id='configure.cc',               pre='1', gr='mpKeywords' },
+    { id='configure.cpp',              pre='1', gr='mpKeywords' },
+    { id='configure.objc',             pre='1', gr='mpKeywords' },
+    { id='configure.f77',              pre='1', gr='mpKeywords' },
+    { id='configure.f90',              pre='1', gr='mpKeywords' },
+    { id='configure.fc',               pre='1', gr='mpKeywords' },
+    { id='configure.javac',            pre='1', gr='mpKeywords' },
+    { id='configure.compiler',         pre='1', gr='mpKeywords' },
     { id='compiler.blacklist',         pre='1', gr='mpKeywords' },
     { id='compiler.whitelist',                  gr='mpKeywords' },
     { id='compiler.fallback',          pre='1', gr='mpKeywords' },
+
+    { id='configure.cc_archflags',              gr='mpKeywords' },
+    { id='configure.objc_archflags',            gr='mpKeywords' },
+    { id='configure.f77_archflags',             gr='mpKeywords' },
+    { id='configure.f90_archflags',             gr='mpKeywords' },
+    { id='configure.fc_archflags',              gr='mpKeywords' },
+
+    -- Compiler Restrictions
     { id='compiler.c_standard',                 gr='mpKeywords' },
     { id='compiler.cxx_standard',               gr='mpKeywords' },
+    { id='compiler.openmp_version',             gr='mpKeywords' },
+    { id='compiler.mpi',                        gr='mpKeywords' },
+    { id='compiler.thread_local_storage',       gr='mpKeywords' },
 
-    -- Automake, autoconf annd autoreconf keywords
+    { id='configure.compiler.add_deps',         gr='mpKeywords', ng='mpBool' },
+    { id='configure.checks.implicit_function_declaration', gr='mpKeywords', ng='mpBool' },
+    { id='configure.checks.implicit_function_declaration.whitelist', pre='1', gr='mpKeywords' },
 
-    { id='use_automake',                        gr='mpKeywords', ng='mpBool' },
-    { id='use_autoconf',                        gr='mpKeywords', ng='mpBool' },
-    { id='use_autoreconf',                      gr='mpKeywords', ng='mpBool' },
-    { id='automake.args',                       gr='mpKeywords' },
-    { id='autoconf.env',                        gr='mpKeywords' },
-    { id='autoconf.args',                       gr='mpKeywords' },
-    { id='autoconf.pre_args',                   gr='mpKeywords' },
-    { id='autoconf.post_args',                  gr='mpKeywords' },
-    { id='autoreconf.env',                      gr='mpKeywords' },
-    { id='autoreconf.args',                     gr='mpKeywords' },
-    { id='autoreconf.pre_args',                 gr='mpKeywords' },
-    { id='autoreconf.post_args',                gr='mpKeywords' },
+    -- portbuild.tcl -- Build phase keywords
+    -- #####################################
 
-    -- Build phase keywords
-
-    { id='build.cmd',                           gr='mpKeywords' },
-    { id='build.type',                          gr='mpKeywords' },
-    { id='build.dir',                           gr='mpKeywords' },
     { id='build.asroot',                        gr='mpKeywords', ng='mpBool' },
     { id='build.jobs',                          gr='mpKeywords' },
+    { id='build.target',               pre='1', gr='mpKeywords' },
+    { id='use_parallel_build',                  gr='mpKeywords', ng='mpBool' },
+    { id='build.dir',                           gr='mpKeywords' },
+    { id='build.cmd',                           gr='mpKeywords' },
+    { id='build.nice',                          gr='mpKeywords' },
     { id='build.args',                 pre='1', gr='mpKeywords' },
     { id='build.pre_args',             pre='1', gr='mpKeywords' },
     { id='build.post_args',            pre='1', gr='mpKeywords' },
-    { id='build.target',               pre='1', gr='mpKeywords' },
+    { id='build.type',                          gr='mpKeywords' },
     { id='build.env',                  pre='1', gr='mpKeywords' },
-    { id='use_parallel_build',                  gr='mpKeywords', ng='mpBool' },
+    { id='build.type.add_deps',                 gr='mpKeywords', ng='mpBool' },
 
-    -- Test phase keywords
+    -- portdestroot.tcl -- Destroot phase keywords
+    -- ###########################################
 
-    { id='test.run',                            gr='mpKeywords', ng='mpBool' },
-    { id='test.cmd',                            gr='mpKeywords'},
-    { id='test.args',                  pre='1', gr='mpKeywords'},
-    { id='test.pre_args',              pre='1', gr='mpKeywords'},
-    { id='test.post_args',             pre='1', gr='mpKeywords'},
-    { id='test.target',                pre='1', gr='mpKeywords'},
-    { id='test.env',                   pre='1', gr='mpKeywords'},
-    { id='test.dir',                            gr='mpKeywords'},
-    { id='test.asroot',                         gr='mpKeywords', ng='mpBool' },
-
-    -- Destroot phase keywords
-
-    { id='destroot.cmd',                        gr='mpKeywords' },
-    { id='destroot.type',                       gr='mpKeywords' },
-    { id='destroot.dir',                        gr='mpKeywords' },
+    { id='destroot.target',            pre='1', gr='mpKeywords' },
     { id='destroot.destdir',                    gr='mpKeywords' },
-    { id='destroot.umask',                      gr='mpKeywords' },
+    { id='destroot.clean',                      gr='mpKeywords', ng='mpBool' },
     { id='destroot.keepdirs',                   gr='mpKeywords' },
-    { id='destroot.asroot',                     gr='mpKeywords', ng='mpBool' },
+    { id='destroot.umask',                      gr='mpKeywords' },
     { id='destroot.violate_mtree',              gr='mpKeywords', ng='mpBool' },
+    { id='destroot.asroot',                     gr='mpKeywords', ng='mpBool' },
+    { id='destroot.delete_la_files',            gr='mpKeywords', ng='mpBool' },
+
+    { id='destroot.dir',                        gr='mpKeywords' },
+    { id='destroot.cmd',                        gr='mpKeywords' },
     { id='destroot.args',              pre='1', gr='mpKeywords' },
     { id='destroot.pre_args',          pre='1', gr='mpKeywords' },
     { id='destroot.post_args',         pre='1', gr='mpKeywords' },
-    { id='destroot.target',            pre='1', gr='mpKeywords' },
+    { id='destroot.nice',                       gr='mpKeywords' },
     { id='destroot.env',               pre='1', gr='mpKeywords' },
 
-    -- Variant keywords
+    -- portinstall.tcl -- Install phase keywords
+    -- #########################################
 
-    { id='requires',                            gr='mpVariantRequires',  ng='mpVariantName', opts='contained' },
-    { id='conflicts',                           gr='mpVariantConflicts', ng='mpVariantName', opts='contained' },
-    { id='description',                         gr='mpVariantDescription',                   opts='contained' },
-    { id='universal_variant',                   gr='mpKeywords',         ng='mpBool' },
-    { id='default_variants', pre='1',           gr='mpKeywords',         ng='mpDefaultVariants' },
+    { id='install.asroot',                      gr='mpKeywords', ng='mpBool' },
 
-    -- Platform name and arch keywords
+    -- portuninstall.tcl -- Uninstall phase keywords
+    -- #############################################
+
+    { id='uninstall.asroot',                    gr='mpKeywords', ng='mpBool' },
+
+    -- portactivate.tcl -- Activate phase keywords
+    -- ###########################################
+
+    { id='activate.asroot',                     gr='mpKeywords', ng='mpBool' },
+
+    -- portdeactivate.tcl -- Deactivate phase keywords
+    -- ###############################################
+
+    { id='deactivate.asroot',                   gr='mpKeywords', ng='mpBool' },
+
+    -- porttest.tcl -- Test phase keywords
+    -- ###################################
+
+    { id='test.run',                            gr='mpKeywords', ng='mpBool' },
+    { id='test.target',                pre='1', gr='mpKeywords' },
+    { id='test.dir',                            gr='mpKeywords' },
+    { id='test.cmd',                            gr='mpKeywords' },
+    { id='test.args',                  pre='1', gr='mpKeywords' },
+    { id='test.pre_args',              pre='1', gr='mpKeywords' },
+    { id='test.post_args',             pre='1', gr='mpKeywords' },
+    { id='test.env',                   pre='1', gr='mpKeywords' },
+
+    -- portdistcheck.tcl
+    -- #################
+
+    { id='distcheck.type',                      gr='mpKeywords' },
+
+    -- portlivecheck.tcl -- Livecheck keywords
+    -- #######################################
+
+    { id='livecheck.url',                       gr='mpKeywords', ng='mpURL' },
+    { id='livecheck.type',                      gr='mpKeywords' },
+    { id='livecheck.md5',                       gr='mpKeywords' },
+    { id='livecheck.regex',                     gr='mpKeywords' },
+    { id='livecheck.name',                      gr='mpKeywords' },
+    { id='livecheck.distname',                  gr='mpKeywords' },
+    { id='livecheck.version',                   gr='mpKeywords' },
+    { id='livecheck.ignore_sslcert',            gr='mpKeywords', ng='mpBool' },
+    { id='livecheck.compression',               gr='mpKeywords', ng='mpBool' },
+    { id='livecheck.curloptions',               gr='mpKeywords' },
+
+    -- portstartupitem.tcl -- Startupitems keywords
+    -- ############################################
+
+    { id='startupitem',                         gr='mpKeywords' },
+    { id='startupitem.autostart',               gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.debug',                   gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.create',                  gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.executable',              gr='mpKeywords' },
+    { id='startupitem.user',                    gr='mpKeywords' },
+    { id='startupitem.group',                   gr='mpKeywords' },
+    { id='startupitem.init',                    gr='mpKeywords' },
+    { id='startupitem.install',                 gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.location',                gr='mpKeywords' },
+    { id='startupitem.logevents',               gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.logfile',                 gr='mpKeywords' },
+    { id='startupitem.name',                    gr='mpKeywords' },
+    { id='startupitem.netchange',               gr='mpKeywords', ng='mpBool' },
+    { id='startupitem.pidfile',                 gr='mpKeywords', ng='mpStartupPid' },
+    { id='startupitem.plist',                   gr='mpKeywords' },
+    { id='startupitem.requires',                gr='mpKeywords' },
+    { id='startupitem.restart',                 gr='mpKeywords' },
+    { id='startupitem.start',                   gr='mpKeywords' },
+    { id='startupitem.stop',                    gr='mpKeywords' },
+    { id='startupitem.type',                    gr='mpKeywords' },
+    { id='startupitem.uniquename',              gr='mpKeywords' },
+    { id='startupitem.daemondo.verbosity',      gr='mpKeywords' },
+
+    { id='none',                                gr='mpStartupPid', opts='contained' },
+    { id='auto',                                gr='mpStartupPid', opts='contained' },
+    { id='clean',                               gr='mpStartupPid', opts='contained' },
+    { id='manual',                              gr='mpStartupPid', opts='contained' },
+
+    -- portload.tcl
+    -- ############
+
+    { id='load.asroot',                         gr='mpKeywords', ng='mpBool' },
+
+    -- portunload.tcl
+    -- ##############
+
+    { id='unload.asroot',                       gr='mpKeywords', ng='mpBool' },
+
+    -- portreload.tcl
+    -- ##############
+
+    { id='reload.asroot',                       gr='mpKeywords', ng='mpBool' },
+
+    -- Platform name and arch nextgroup keywords
+    -- #########################################
 
     { id='darwin',                              gr='mpPlatformName', opts='contained' },
     { id='macosx',                              gr='mpPlatformName', opts='contained' },
@@ -266,49 +460,8 @@ return {
     { id='x86_64',                              gr='mpPlatformArch', opts='contained' },
     { id='noarch',                              gr='mpPlatformArch', opts='contained' },
 
-    -- Dependencies keywords
-
-    { id='depends_fetch',              pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-    { id='depends_extract',            pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-    { id='depends_build',              pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-    { id='depends_lib',                pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-    { id='depends_run',                pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-    { id='depends_test',               pre='1', gr='mpKeywords', ng='mpDependsEntries' },
-
-    -- Startupitems keywords
-
-    { id='startupitem.start',                   gr='mpKeywords' },
-    { id='startupitem.stop',                    gr='mpKeywords' },
-    { id='startupitem.restart',                 gr='mpKeywords' },
-    { id='startupitem.init',                    gr='mpKeywords' },
-    { id='startupitem.executable',              gr='mpKeywords' },
-    { id='startupitem.logfile',                 gr='mpKeywords' },
-    { id='startupitem.location',                gr='mpKeywords' },
-    { id='startupitem.type',                    gr='mpKeywords' },
-    { id='startupitem.name',                    gr='mpKeywords' },
-    { id='startupitem.install',                 gr='mpKeywords', ng='mpBool' },
-    { id='startupitem.autostart',               gr='mpKeywords', ng='mpBool' },
-    { id='startupitem.create',                  gr='mpKeywords', ng='mpBool' },
-    { id='startupitem.debug',                   gr='mpKeywords', ng='mpBool' },
-    { id='startupitem.logevents',               gr='mpKeywords', ng='mpBool' },
-    { id='startupitem.netchange',               gr='mpKeywords', ng='mpBool' },
-
-    { id='startupitem.pidfile',                 gr='mpKeywords', ng='mpStartupPid' },
-    { id='none',                                gr='mpStartupPid', opts='contained' },
-    { id='auto',                                gr='mpStartupPid', opts='contained' },
-    { id='clean',                               gr='mpStartupPid', opts='contained' },
-    { id='manual',                              gr='mpStartupPid', opts='contained' },
-
-    { id='livecheck.type',                      gr='mpKeywords' },
-    { id='livecheck.name',                      gr='mpKeywords' },
-    { id='livecheck.distname',                  gr='mpKeywords' },
-    { id='livecheck.version',                   gr='mpKeywords' },
-    { id='livecheck.url',                       gr='mpKeywords', ng='mpURL' },
-    { id='livecheck.regex',                     gr='mpKeywords' },
-    { id='livecheck.md5',                       gr='mpKeywords' },
-    { id='distcheck.check',                     gr='mpKeywords' },
-
     -- Tcl and Tcl extensions keywords
+    -- ###############################
 
     { id='if',                                  gr='mpKeywords' },
     { id='else',                                gr='mpKeywords' },
@@ -316,7 +469,6 @@ return {
     { id='set',                                 gr='mpKeywords' },
     { id='incr',                                gr='mpKeywords' },
     { id='switch',                              gr='mpKeywords' },
-    { id='known_fail',                          gr='mpKeywords', ng='mpBool' },
     { id='variant_isset',                       gr='mpKeywords' },
     { id='variant_set',                         gr='mpKeywords' },
 
@@ -347,6 +499,7 @@ return {
     { id='ui_warn',                             gr='mpTcl', opts='contained' },
 
     -- Categories names
+    -- ################
 
     { id='aqua',                                gr='mpCategoriesName', opts='contained' },
     { id='archivers',                           gr='mpCategoriesName', opts='contained' },
@@ -405,6 +558,7 @@ return {
     -- +-------------+
 
     -- PortGroup names
+    -- ###############
 
     { id='active_variants',                     gr='mpPortGroupName', opts='contained' },
     { id='apache2',                             gr='mpPortGroupName', opts='contained' },
@@ -481,11 +635,13 @@ return {
     { id='yelp',                                gr='mpPortGroupName', opts='contained' },
 
     -- active_variants (1.1) keywords
+    -- ##############################
 
     { id='active_variants',                     gr='mpKeywords' },
     { id='require_active_variants',             gr='mpKeywords' },
 
     -- app keywords
+    -- ############
 
     { id='app.create',                          gr='mpKeywords', ng='mpBool' },
     { id='app.name',                            gr='mpKeywords' },
@@ -505,6 +661,7 @@ return {
     { id='app.use_launch_script',               gr='mpKeywords', ng='mpBool' },
 
     -- bazel keywords
+    -- ##############
 
     { id='bazel.version',                       gr='mpKeywords' },
     { id='bazel.min_xcode',                     gr='mpKeywords' },
@@ -529,6 +686,7 @@ return {
     { id='bazel.fix_wheel_deployment_target',   gr='mpKeywords', ng='mpBool' },
 
     -- bitbucket keywords
+    -- ##################
 
     { id='bitbucket.author',                    gr='mpKeywords' },
     { id='bitbucket.project',                   gr='mpKeywords' },
@@ -541,12 +699,14 @@ return {
     { id='bitbucket.setup',                     gr='mpKeywords' },
 
     -- boost keywords
+    -- ##############
 
     { id='boost.version',                       gr='mpKeywords' },
     { id='boost.depends_type',                  gr='mpKeywords' },
     { id='boost.require_numpy',                 gr='mpKeywords', ng='mpBool' },
 
     -- cargo keywords
+    -- ##############
 
     { id='cargo.bin',                           gr='mpKeywords' },
     { id='cargo.home',                          gr='mpKeywords' },
@@ -554,10 +714,12 @@ return {
     { id='cargo.crates_github',                 gr='mpKeywords' },
 
     -- clang_dependency keywords
+    -- #########################
 
     { id='clang_dependency.extra_versions',     gr='mpKeywords' },
 
     -- cmake keywords
+    -- ##############
 
     { id='cmake.build_dir',                     gr='mpKeywords' },
     { id='cmake.source_dir',                    gr='mpKeywords' },
@@ -573,6 +735,7 @@ return {
     { id='cmake.set_cxx_standard',              gr='mpKeywords', ng='mpBool' },
 
     -- compiler_wrapper keywords
+    -- #########################
 
     { id='compwrap.add_compiler_flags',         gr='mpKeywords', ng='mpBool' },
     { id='compwrap.add_legacysupport_flags',    gr='mpKeywords', ng='mpBool' },
@@ -585,6 +748,7 @@ return {
     { id='compwrap.ccache_supported_compilers', gr='mpKeywords' },
 
     -- compilers keywords
+    -- ##################
 
     { id='compilers.variants',                  gr='mpKeywords' },
     { id='compilers.gcc_variants',              gr='mpKeywords' },
@@ -592,15 +756,18 @@ return {
     { id='compilers.allow_arguments_mismatch',  gr='mpKeywords', ng='mpBool' },
 
     -- conflicts_build keyword
+    -- #######################
 
     { id='conflicts_build',                     gr='mpKeywords' },
 
     -- crossbinutils keywords
+    -- ######################
 
     { id='crossbinutils.target',                gr='mpKeywords' },
     { id='crossbinutils.setup',                 gr='mpKeywords' },
 
     -- crossgcc keywords
+    -- #################
 
     { id='crossgcc.target',                     gr='mpKeywords' },
     { id='crossgcc.languages',         pre='1', gr='mpKeywords' },
@@ -608,10 +775,12 @@ return {
     { id='crossgcc.setup_libc',                 gr='mpKeywords' },
 
     -- crossgdb keywords
+    -- #################
 
     { id='crossgdb.setup',                      gr='mpKeywords' },
 
     -- deprecated keywords
+    -- ###################
 
     { id='deprecated.maximum_xcodeversion',     gr='mpKeywords' },
     { id='deprecated.maximum_osmajor',          gr='mpKeywords' },
@@ -620,10 +789,12 @@ return {
     { id='deprecated.eol_version',              gr='mpKeywords', ng='mpBool' },
 
     -- developerversion keywords
+    -- #########################
 
     { id='minimum_developerversions',           gr='mpKeywords' },
 
     -- gitea keywords
+    -- ##############
 
     { id='gitea.author',                        gr='mpKeywords' },
     { id='gitea.project',                       gr='mpKeywords' },
@@ -637,6 +808,7 @@ return {
     { id='gitea.livecheck.regex',               gr='mpKeywords' },
 
     -- github keywords
+    -- ###############
 
     { id='github.author',                       gr='mpKeywords' },
     { id='github.project',                      gr='mpKeywords' },
@@ -652,6 +824,7 @@ return {
     { id='github.setup',                        gr='mpKeywords' },
 
     -- gitlab keywords
+    -- ###############
 
     { id='gitlab.author',                       gr='mpKeywords' },
     { id='gitlab.project',                      gr='mpKeywords' },
@@ -666,6 +839,7 @@ return {
     { id='gitlab.setup',                        gr='mpKeywords' },
 
     -- gnu_info keywords
+    -- #################
 
     { id='gnu_info.name',                       gr='mpKeywords' },
     { id='gnu_info.files',                      gr='mpKeywords' },
@@ -674,19 +848,23 @@ return {
     { id='gnu_info.install_info',               gr='mpKeywords' },
 
     -- gnuradio keywords
+    -- #################
 
     { id='gnuradio.type',                       gr='mpKeywords' },
     { id='gnuradio.python_version',             gr='mpKeywords' },
 
     -- gnustep keywords
+    -- ################
 
     { id='gnustep.cc',                          gr='mpKeywords' },
 
     -- gobject_introspection keywords
+    -- ##############################
 
     { id='gobject_introspection',               gr='mpKeywords', mp='mpBool' },
 
     -- golang keywords
+    -- ###############
 
     { id='go.package',                          gr='mpKeywords' },
     { id='go.domain',                           gr='mpKeywords' },
@@ -701,32 +879,38 @@ return {
     { id='go.vendors',                          gr='mpKeywords' },
 
     -- gpg_verify keywords
+    -- ###################
 
     { id='gpg_verify.use_gpg_verification',     gr='mpKeywords', ng='mpBool' },
     { id='gpg_verify.gpg',                      gr='mpKeywords' },
     { id='gpg_verify.gpg_homedir',              gr='mpKeywords' },
 
     -- haskell_stack keywords
+    -- ######################
 
     { id='haskell_stack.system_ghc',            gr='mpKeywords', ng='mpBool' },
     { id='haskell_stack.stack_root',            gr='mpKeywords' },
 
     -- hunspelldict keywords
+    -- #####################
 
     { id='hunspelldict.locale',                 gr='mpKeywords' },
     { id='hunspelldict.setup',                  gr='mpKeywords' },
 
     -- janet keywords
+    -- ##############
 
     { id='janet.link_bin',                      gr='mpKeywords', ng='mpBool' },
 
     -- java keywords
+    -- #############
 
     { id='java.version',                        gr='mpKeywords' },
     { id='java.home',                           gr='mpKeywords' },
     { id='java.fallback',                       gr='mpKeywords' },
 
     -- legacysupport (1.0 and 1.1) keywords
+    -- ####################################
 
     { id='legacysupport.newest_darwin_requires_legacy', gr='mpKeywords' },
     { id='legacysupport.use_static',            gr='mpKeywords', ng='mpBool' },
@@ -735,6 +919,7 @@ return {
     { id='compiler.limit_flags',                gr='mpKeywords', ng='mpBool' },
 
     -- linear_algebra keywords
+    -- #######################
 
     { id='linalglib',                           gr='mpKeywords' },
     { id='cmake_linalglib',                     gr='mpKeywords' },
@@ -743,6 +928,7 @@ return {
     { id='linalg.setup',                        gr='mpKeywords' },
 
     -- luarocks keywords
+    -- #################
 
     { id='luarocks.default_branch',             gr='mpKeywords' },
     { id='luarocks.branch',                     gr='mpKeywords' },
@@ -757,16 +943,16 @@ return {
     { id='luarocks.setup',                      gr='mpKeywords' },
 
     -- makefile keywords
+    -- #################
 
     { id='makefile.override',          pre='1', gr='mpKeywords' },
     { id='makefile.has_destdir',                gr='mpKeywords', ng='mpBool' },
     { id='makefile.prefix_name',                gr='mpKeywords' },
     { id='muniversal.arch_tools',               gr='mpKeywords' },
-    { id='compiler.log_verbose_output',         gr='mpKeywords', ng='mpBool' },
-    { id='compiler.limit_flags',                gr='mpKeywords' },
     { id='makefile.setup',                      gr='mpKeywords' },
 
     -- muniversal keywords
+    -- ###################
 
     { id='merger_configure_compiler',           gr='mpKeywords' },
     { id='merger_configure_cppflags',           gr='mpKeywords' },
@@ -793,6 +979,7 @@ return {
     { id='universal_archs_supported',           gr='mpKeywords', ng='mpSupportedArchs' },
 
     -- ocaml (1.0 and 1.1) keywords
+    -- ############################
 
     { id='ocaml.bin',                           gr='mpKeywords' },
     { id='ocaml.build_type',                    gr='mpKeywords' },
@@ -810,18 +997,21 @@ return {
     { id='topkg.setup',                         gr='mpKeywords' },
 
     -- octave keywords
+    -- ###############
 
     { id='octave.module',                       gr='mpKeywords' },
     { id='octave.config_h',                     gr='mpKeywords', ng='mpBool' },
     { id='octave.setup',                        gr='mpKeywords' },
 
     -- openssl keywords
+    -- ################
 
     { id='openssl.branch',                      gr='mpKeywords' },
     { id='openssl.depends_type',                gr='mpKeywords' },
     { id='openssl.configure',                   gr='mpKeywords' },
 
     -- perl5 keywords
+    -- ##############
 
     { id='perl5.branch',                        gr='mpKeywords' },
     { id='perl5.branches',                      gr='mpKeywords' },
@@ -844,6 +1034,7 @@ return {
     { id='perl5.setup',                         gr='mpKeywords' },
 
     -- php (1.1) keywords
+    -- ##################
 
     { id='php.branches',                        gr='mpKeywords' },
     { id='php.latest_stable_branch',            gr='mpKeywords' },
@@ -867,10 +1058,12 @@ return {
     { id='php.suffix',                          gr='mpKeywords' },
 
     -- pure keywords
+    -- #############
 
     { id='pure.setup',                          gr='mpKeywords' },
 
     -- python keywords
+    -- ###############
 
     { id='python.rootname',                     gr='mpKeywords' },
     { id='python.versions',                     gr='mpKeywords' },
@@ -896,6 +1089,7 @@ return {
     { id='python.move_binaries_suffix',         gr='mpKeywords' },
 
     -- qmake annd qmake5 keywords
+    -- ##########################
 
     { id='qt4.debug_variant',                   gr='mpKeywords', ng='mpBool' },
     { id='qt5.add_spec',                        gr='mpKeywords', ng='mpBool' },
@@ -907,6 +1101,7 @@ return {
     { id='qt5.spec_cmd',                        gr='mpKeywords' },
 
     -- qt5 keywords
+    -- ############
 
     { id='qt5.depends_component',               gr='mpKeywords' },
     { id='qt5.depends_build_component',         gr='mpKeywords' },
@@ -915,11 +1110,13 @@ return {
     { id='qt5.min_version',                     gr='mpKeywords' },
 
     -- qt6 keywords
+    -- ############
 
     { id='qt6.min_version',                     gr='mpKeywords' },
     { id='qt_qmake_spec',                       gr='mpKeywords' },
 
     -- ruby keywords
+    -- #############
 
     { id='ruby.default_branch',                 gr='mpKeywords' },
     { id='ruby.branch',                         gr='mpKeywords' },
@@ -942,12 +1139,14 @@ return {
     { id='ruby.setup',                          gr='mpKeywords' },
 
     -- select keywords
+    -- ###############
 
     { id='select.group',                        gr='mpKeywords' },
     { id='select.file',                         gr='mpKeywords' },
     { id='select.entries',                      gr='mpKeywords' },
 
     -- sourcehut keywords
+    -- ##################
 
     { id='sourcehut.author',                    gr='mpKeywords' },
     { id='sourcehut.project',                   gr='mpKeywords' },
@@ -962,6 +1161,7 @@ return {
     { id='sourcehut.setup',                     gr='mpKeywords' },
 
     -- texlive keywords
+    -- ################
 
     { id='texlive.mktexlsr',                    gr='mpKeywords' },
     { id='texlive.removedocdepends',            gr='mpKeywords' },
@@ -976,12 +1176,14 @@ return {
     { id='texlive.texmfport',                   gr='mpKeywords' },
 
     -- waf keywords
+    -- ############
 
     { id='waf.python_branch',                   gr='mpKeywords' },
     { id='waf.python_version',                  gr='mpKeywords' },
     { id='waf.python',                          gr='mpKeywords' },
 
     -- wxWidgets keywords
+    -- ##################
 
     { id='wxWidgets.name',                      gr='mpKeywords' },
     { id='wxWidgets.port',                      gr='mpKeywords' },
@@ -995,10 +1197,12 @@ return {
     { id='wxWidgets.use',                       gr='mpKeywords' },
 
     -- x11font keywords
+    -- ################
 
     { id='x11font.setup',                       gr='mpKeywords' },
 
     -- xcode keywords
+    -- ##############
 
     { id='xcode.project',                       gr='mpKeywords' },
     { id='xcode.target',                        gr='mpKeywords' },
@@ -1008,19 +1212,21 @@ return {
     { id='xcode.destroot.type',                 gr='mpKeywords' },
     { id='xcode.destroot.path',                 gr='mpKeywords' },
     { id='xcode.destroot.settings',             gr='mpKeywords' },
-    { id='use_xcode',                           gr='mpKeywords', ng='mpBool' },
 
     -- xcode_workaround keywords
+    -- #########################
 
     { id='xcode_workaround.type',               gr='mpKeywords' },
     { id='xcode_workaround.fixed_xcode_version',gr='mpKeywords' },
     { id='xcode_workaround.os_versions',        gr='mpKeywords' },
 
     -- xcodeversion keywords
+    -- #####################
 
     { id='minimum_xcodeversions',               gr='mpKeywords' },
 
     -- xmlcatalog keywords
+    -- ###################
 
     { id='xml.catalog',                         gr='mpKeywords' },
     { id='xml.addtocatalog',                    gr='mpKeywords' },
