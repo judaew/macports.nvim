@@ -23,9 +23,9 @@ local function syntaxMatch(match, prefix, group, opts, nextgroup)
     if (match ~= nil) then
         if (prefix ~= nil) then
             if (prefix == '0') then
-                prefix = '%(-append\\|-delete\\|-replace\\)'
+                prefix = '%(-append\\|-prepend\\|-delete\\|-replace\\|-strsed\\)'
             elseif (prefix == '1') then
-                prefix = '%(-append\\|-delete\\|-replace\\)\\?'
+                prefix = '%(-append\\|-prepend\\|-delete\\|-replace\\|-strsed\\)\\?'
             end
         end
 
