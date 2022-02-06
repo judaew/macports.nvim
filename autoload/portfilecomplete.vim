@@ -7,7 +7,7 @@ function! portfilecomplete#CompleteFA(findstart, base)
         " locate the start of the word
         let line = getline('.')
         let start = col('.') - 2
-        while start > 0 && (line[start - 1] =~ '\a' || line[start - 1] =~ '.' || line[start - 1] =~ '-')
+        while start > 0 && (line[start - 1] =~ '\a')
             let start -= 1
         endwhile
         return start
@@ -15,7 +15,7 @@ function! portfilecomplete#CompleteFA(findstart, base)
         " find classes matching "a:base"
         let res = []
         for m in split(s:matches)
-            if m =~ '^' . a:base
+            if m =~ a:base
                 call add(res, m)
             endif
         endfor
