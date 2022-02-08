@@ -1078,6 +1078,7 @@ return {
     { id='python.include',                      gr='mpKeywords' },
     { id='python.pkgd',                         gr='mpKeywords' },
     { id='python.pep517',                       gr='mpKeywords', ng='mpBool' },
+    { id='python.pep517_backend',               gr='mpKeywords' },
     { id='python.add_dependencies',             gr='mpKeywords' },
     { id='python.add_archflags',                gr='mpKeywords', ng='mpBool' },
     { id='python.set_compiler',                 gr='mpKeywords', ng='mpBool' },
