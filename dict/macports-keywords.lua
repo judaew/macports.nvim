@@ -563,7 +563,6 @@ return {
     { id='active_variants',                     gr='mpPortGroupName', opts='contained' },
     { id='apache2',                             gr='mpPortGroupName', opts='contained' },
     { id='app',                                 gr='mpPortGroupName', opts='contained' },
-    { id='archcheck',                           gr='mpPortGroupName', opts='contained' },
     { id='bazel',                               gr='mpPortGroupName', opts='contained' },
     { id='bitbucket',                           gr='mpPortGroupName', opts='contained' },
     { id='boost',                               gr='mpPortGroupName', opts='contained' },
