@@ -1030,6 +1030,7 @@ return {
     { id='perl5.link_binaries',                 gr='mpKeywords', ng='mpBool' },
     { id='perl5.link_binaries_suffix',          gr='mpKeywords' },
     { id='perl5.use_module_build',              gr='mpKeywords' },
+    { id='perl5.create_variants',               gr='mpKeywords' },
     { id='perl5.setup',                         gr='mpKeywords' },
 
     -- php (1.1) keywords
