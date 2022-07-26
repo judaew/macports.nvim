@@ -563,6 +563,7 @@ return {
     { id='active_variants',                     gr='mpPortGroupName', opts='contained' },
     { id='apache2',                             gr='mpPortGroupName', opts='contained' },
     { id='app',                                 gr='mpPortGroupName', opts='contained' },
+    { id='aspelldict',                          gr='mpPortGroupName', opts='contained' },
     { id='bazel',                               gr='mpPortGroupName', opts='contained' },
     { id='bitbucket',                           gr='mpPortGroupName', opts='contained' },
     { id='boost',                               gr='mpPortGroupName', opts='contained' },
@@ -578,7 +579,6 @@ return {
     { id='crossbinutils',                       gr='mpPortGroupName', opts='contained' },
     { id='crossgcc',                            gr='mpPortGroupName', opts='contained' },
     { id='crossgdb',                            gr='mpPortGroupName', opts='contained' },
-    { id='cxx11',                               gr='mpPortGroupName', opts='contained' },
     { id='debug',                               gr='mpPortGroupName', opts='contained' },
     { id='deprecated',                          gr='mpPortGroupName', opts='contained' },
     { id='developerversion',                    gr='mpPortGroupName', opts='contained' },
@@ -607,6 +607,7 @@ return {
     { id='mpi',                                 gr='mpPortGroupName', opts='contained' },
     { id='mpiutil',                             gr='mpPortGroupName', opts='contained' },
     { id='muniversal',                          gr='mpPortGroupName', opts='contained' },
+    { id='npm',                                 gr='mpPortGroupName', opts='contained' },
     { id='obsolete',                            gr='mpPortGroupName', opts='contained' },
     { id='ocaml',                               gr='mpPortGroupName', opts='contained' },
     { id='octave',                              gr='mpPortGroupName', opts='contained' },
@@ -621,8 +622,10 @@ return {
     { id='qt5',                                 gr='mpPortGroupName', opts='contained' },
     { id='qt6',                                 gr='mpPortGroupName', opts='contained' },
     { id='ruby',                                gr='mpPortGroupName', opts='contained' },
+    { id='rust',                                gr='mpPortGroupName', opts='contained' },
     { id='select',                              gr='mpPortGroupName', opts='contained' },
     { id='sourcehut',                           gr='mpPortGroupName', opts='contained' },
+    { id='stub',                                gr='mpPortGroupName', opts='contained' },
     { id='texlive',                             gr='mpPortGroupName', opts='contained' },
     { id='waf',                                 gr='mpPortGroupName', opts='contained' },
     { id='wxWidgets',                           gr='mpPortGroupName', opts='contained' },
@@ -658,6 +661,11 @@ return {
     { id='app.privacy_photo',                   gr='mpKeywords', ng='mpBool' },
     { id='app.hide_dock_icon',                  gr='mpKeywords', ng='mpBool' },
     { id='app.use_launch_script',               gr='mpKeywords', ng='mpBool' },
+
+    -- aspelldict keywords
+    -- ###################
+
+    { id='aspelldict.setup',                    gr='mpKeywords' },
 
     -- bazel keywords
     -- ##############
@@ -977,6 +985,13 @@ return {
     { id='merger_no_3_archs',                   gr='mpKeywords', ng='mpBool' },
     { id='universal_archs_supported',           gr='mpKeywords', ng='mpSupportedArchs' },
 
+    -- npm keywords
+    -- ############
+
+    { id='npm.rootname',                        gr='mpKeywords' },
+    { id='npm.nodejs_version',                  gr='mpKeywords' },
+    { id='npm.version',                         gr='mpKeywords' },
+
     -- ocaml (1.0 and 1.1) keywords
     -- ############################
 
@@ -1139,6 +1154,24 @@ return {
     { id='ruby.link_binaries_suffix',           gr='mpKeywords' },
     { id='ruby.setup',                          gr='mpKeywords' },
 
+    -- rust keywords
+    -- #############
+
+    { id='cargo.offline_cmd',                   gr='mpKeywords' },
+    { id='cargo.update',                        gr='mpKeywords' },
+    { id='rust.upstream_deployment_target',     gr='mpKeywords' },
+    { id='rust.upstream_archs',                 gr='mpKeywords' },
+    { id='rust.use_cctools',                    gr='mpKeywords', ng='mpBool' },
+    { id='rust.archiver',                       gr='mpKeywords' },
+    { id='rust.ranlib',                         gr='mpKeywords' },
+    { id='rust.rt_static_libs',                 gr='mpKeywords' },
+    { id='rust.add_compiler_runtime',           gr='mpKeywords', ng='mpBool' },
+    { id='configure.ld',                        gr='mpKeywords' },
+    { id='rust.llvm.legacy',                        gr='mpKeywords' },
+    { id='rust.llvm.cflags',                        gr='mpKeywords' },
+    { id='rust.llvm.cxxflags',                        gr='mpKeywords' },
+    { id='rust.llvm.ldflags',                        gr='mpKeywords' },
+
     -- select keywords
     -- ###############
 
@@ -1160,6 +1193,11 @@ return {
     { id='sourcehut.livecheck.branch',          gr='mpKeywords' },
     { id='sourcehut.livecheck.regex',           gr='mpKeywords' },
     { id='sourcehut.setup',                     gr='mpKeywords' },
+
+    -- stub keywords
+    -- #############
+
+    { id='stub.subport_name',                   gr='mpKeywords' },
 
     -- texlive keywords
     -- ################
