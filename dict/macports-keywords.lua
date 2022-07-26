@@ -1128,6 +1128,10 @@ return {
     -- qt6 keywords
     -- ############
 
+    { id='available_qt_versions',               gr='mpKeywords' },
+    { id='qt6.name',                            gr='mpKeywords' },
+    { id='qt6.base_port',                       gr='mpKeywords' },
+    { id='qt6.version',                         gr='mpKeywords' },
     { id='qt6.min_version',                     gr='mpKeywords' },
     { id='qt_qmake_spec',                       gr='mpKeywords' },
 
