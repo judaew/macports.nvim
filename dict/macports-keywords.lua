@@ -1202,6 +1202,7 @@ return {
     -- #############
 
     { id='stub.subport_name',                   gr='mpKeywords' },
+    { id='stub.lib_dep',                        gr='mpKeywords' },
 
     -- texlive keywords
     -- ################
