@@ -163,9 +163,9 @@ return {
     { id='extract.asroot',                      gr='mpKeywords', ng='mpBool' },
     { id='extract.dir',                         gr='mpKeywords', ng='mpBool' },
     { id='extract.cmd',                         gr='mpKeywords' },
-    { id='extract.args',               pre='1', gr='mpKeywords' },
-    { id='extract.pre_args',           pre='1', gr='mpKeywords' },
-    { id='extract.post_args',          pre='1', gr='mpKeywords' },
+    { id='extract.args',               pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='extract.pre_args',           pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='extract.post_args',          pre='1', gr='mpKeywords', ng='mpConfEntries' },
 
     -- portpatch.tcl -- Patch phase keywords
     -- #####################################
@@ -173,9 +173,9 @@ return {
     { id='patch.asroot',                        gr='mpKeywords', ng='mpBool' },
     { id='patch.dir',                           gr='mpKeywords' },
     { id='patch.cmd',                           gr='mpKeywords' },
-    { id='patch.args',                          gr='mpKeywords' },
-    { id='patch.pre_args',                      gr='mpKeywords' },
-    { id='patch.post_args',                     gr='mpKeywords' },
+    { id='patch.args',                          gr='mpKeywords', ng='mpConfEntries' },
+    { id='patch.pre_args',                      gr='mpKeywords', ng='mpConfEntries' },
+    { id='patch.post_args',                     gr='mpKeywords', ng='mpConfEntries' },
 
     -- portconfigure.tcl -- Configure phase keywords
     -- #############################################
@@ -196,7 +196,7 @@ return {
     { id='compiler.fortran_fallback',           gr='mpKeywords' },
 
 
-    { id='configure.env',              pre='1', gr='mpKeywords' },
+    { id='configure.env',              pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.args',             pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.pre_args',         pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.post_args',        pre='1', gr='mpKeywords', ng='mpConfEntries' },
@@ -206,17 +206,17 @@ return {
 
     -- Automake, autoconf annd autoreconf keywords
     { id='autoreconf.dir',                      gr='mpKeywords' },
-    { id='autoreconf.env',                      gr='mpKeywords' },
-    { id='autoreconf.args',                     gr='mpKeywords' },
-    { id='autoreconf.pre_args',                 gr='mpKeywords' },
-    { id='autoreconf.post_args',                gr='mpKeywords' },
+    { id='autoreconf.env',                      gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoreconf.args',                     gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoreconf.pre_args',                 gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoreconf.post_args',                gr='mpKeywords', ng='mpConfEntries' },
     { id='autoconf.dir',                        gr='mpKeywords' },
-    { id='autoconf.env',                        gr='mpKeywords' },
-    { id='autoconf.args',                       gr='mpKeywords' },
-    { id='autoconf.pre_args',                   gr='mpKeywords' },
-    { id='autoconf.post_args',                  gr='mpKeywords' },
+    { id='autoconf.env',                        gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoconf.args',                       gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoconf.pre_args',                   gr='mpKeywords', ng='mpConfEntries' },
+    { id='autoconf.post_args',                  gr='mpKeywords', ng='mpConfEntries' },
     { id='automake.dir',                        gr='mpKeywords' },
-    { id='automake.args',                       gr='mpKeywords' },
+    { id='automake.args',                       gr='mpKeywords', ng='mpConfEntries' },
     { id='xmkmf.cmd',                           gr='mpKeywords' },
     { id='xmkmf.dir',                           gr='mpKeywords' },
 
@@ -264,7 +264,7 @@ return {
     { id='configure.sysroot',                   gr='mpKeywords' },
     { id='configure.developer_dir',             gr='mpKeywords' },
     { id='configure.universal_archs',  pre='1', gr='mpKeywords' },
-    { id='configure.universal_args',   pre='1', gr='mpKeywords' },
+    { id='configure.universal_args',   pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='configure.universal_cflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_objcflags', pre='1', gr='mpKeywords' },
     { id='configure.universal_cppflags', pre='1', gr='mpKeywords' },
@@ -313,11 +313,11 @@ return {
     { id='build.dir',                           gr='mpKeywords' },
     { id='build.cmd',                           gr='mpKeywords' },
     { id='build.nice',                          gr='mpKeywords' },
-    { id='build.args',                 pre='1', gr='mpKeywords' },
-    { id='build.pre_args',             pre='1', gr='mpKeywords' },
-    { id='build.post_args',            pre='1', gr='mpKeywords' },
+    { id='build.args',                 pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='build.pre_args',             pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='build.post_args',            pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='build.type',                          gr='mpKeywords' },
-    { id='build.env',                  pre='1', gr='mpKeywords' },
+    { id='build.env',                  pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='build.type.add_deps',                 gr='mpKeywords', ng='mpBool' },
 
     -- portdestroot.tcl -- Destroot phase keywords
@@ -334,11 +334,11 @@ return {
 
     { id='destroot.dir',                        gr='mpKeywords' },
     { id='destroot.cmd',                        gr='mpKeywords' },
-    { id='destroot.args',              pre='1', gr='mpKeywords' },
-    { id='destroot.pre_args',          pre='1', gr='mpKeywords' },
-    { id='destroot.post_args',         pre='1', gr='mpKeywords' },
+    { id='destroot.args',              pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='destroot.pre_args',          pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='destroot.post_args',         pre='1', gr='mpKeywords', ng='mpConfEntries' },
     { id='destroot.nice',                       gr='mpKeywords' },
-    { id='destroot.env',               pre='1', gr='mpKeywords' },
+    { id='destroot.env',               pre='1', gr='mpKeywords', ng='mpConfEntries' },
 
     -- portinstall.tcl -- Install phase keywords
     -- #########################################
@@ -367,10 +367,10 @@ return {
     { id='test.target',                pre='1', gr='mpKeywords' },
     { id='test.dir',                            gr='mpKeywords' },
     { id='test.cmd',                            gr='mpKeywords' },
-    { id='test.args',                  pre='1', gr='mpKeywords' },
-    { id='test.pre_args',              pre='1', gr='mpKeywords' },
-    { id='test.post_args',             pre='1', gr='mpKeywords' },
-    { id='test.env',                   pre='1', gr='mpKeywords' },
+    { id='test.args',                  pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='test.pre_args',              pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='test.post_args',             pre='1', gr='mpKeywords', ng='mpConfEntries' },
+    { id='test.env',                   pre='1', gr='mpKeywords', ng='mpConfEntries' },
 
     -- portdistcheck.tcl
     -- #################
