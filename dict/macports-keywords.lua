@@ -522,6 +522,7 @@ return {
     { id='gnome',                               gr='mpCategoriesName', opts='contained' },
     { id='gnustep',                             gr='mpCategoriesName', opts='contained' },
     { id='graphics',                            gr='mpCategoriesName', opts='contained' },
+    { id='haskell',                             gr='mpCategoriesName', opts='contained' },
     { id='irc',                                 gr='mpCategoriesName', opts='contained' },
     { id='janet',                               gr='mpCategoriesName', opts='contained' },
     { id='java',                                gr='mpCategoriesName', opts='contained' },
