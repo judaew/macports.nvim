@@ -86,8 +86,6 @@ return {
     { id='conflicts',                           gr='mpVariantConflicts', ng='mpVariantName', opts='contained' },
     { id='description',                         gr='mpVariantDescription',                   opts='contained' },
 
-
-
     -- portdepends.tcl -- Dependencies keywords
     -- ########################################
 
@@ -572,7 +570,6 @@ return {
     { id='cargo',                               gr='mpPortGroupName', opts='contained' },
     { id='cargo_fetch',                         gr='mpPortGroupName', opts='contained' },
     { id='clang_dependency',                    gr='mpPortGroupName', opts='contained' },
-    { id='cltversion',                          gr='mpPortGroupName', opts='contained' },
     { id='cmake',                               gr='mpPortGroupName', opts='contained' },
     { id='compiler_blacklist_versions',         gr='mpPortGroupName', opts='contained' },
     { id='compiler_wrapper',                    gr='mpPortGroupName', opts='contained' },
