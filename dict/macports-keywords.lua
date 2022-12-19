@@ -440,6 +440,7 @@ return {
     -- Platform name and arch nextgroup keywords
     -- #########################################
 
+    { id='any',                                 gr='mpPlatformName', opts='contained' },
     { id='darwin',                              gr='mpPlatformName', opts='contained' },
     { id='macosx',                              gr='mpPlatformName', opts='contained' },
     { id='puredarwin',                          gr='mpPlatformName', opts='contained' },
