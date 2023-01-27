@@ -561,6 +561,7 @@ return {
     -- PortGroup names
     -- ###############
 
+    { id='R',                                   gr='mpPortGroupName', opts='contained' },
     { id='active_variants',                     gr='mpPortGroupName', opts='contained' },
     { id='apache2',                             gr='mpPortGroupName', opts='contained' },
     { id='app',                                 gr='mpPortGroupName', opts='contained' },
@@ -583,6 +584,7 @@ return {
     { id='deprecated',                          gr='mpPortGroupName', opts='contained' },
     { id='developerversion',                    gr='mpPortGroupName', opts='contained' },
     { id='elisp',                               gr='mpPortGroupName', opts='contained' },
+    { id='fortran',                             gr='mpPortGroupName', opts='contained' },
     { id='fuse',                                gr='mpPortGroupName', opts='contained' },
     { id='gitea',                               gr='mpPortGroupName', opts='contained' },
     { id='github',                              gr='mpPortGroupName', opts='contained' },
@@ -627,6 +629,7 @@ return {
     { id='sourcehut',                           gr='mpPortGroupName', opts='contained' },
     { id='stub',                                gr='mpPortGroupName', opts='contained' },
     { id='texlive',                             gr='mpPortGroupName', opts='contained' },
+    { id='tree_sitter',                         gr='mpPortGroupName', opts='contained' },
     { id='waf',                                 gr='mpPortGroupName', opts='contained' },
     { id='wxWidgets',                           gr='mpPortGroupName', opts='contained' },
     { id='x11font',                             gr='mpPortGroupName', opts='contained' },
@@ -635,6 +638,16 @@ return {
     { id='xcodeversion',                        gr='mpPortGroupName', opts='contained' },
     { id='xmlcatalog',                          gr='mpPortGroupName', opts='contained' },
     { id='yelp',                                gr='mpPortGroupName', opts='contained' },
+
+    -- R keywords
+    -- ##########
+
+    { id='R.domain',                            gr='mpKeywords' },
+    { id='R.author',                            gr='mpKeywords' },
+    { id='R.package',                           gr='mpKeywords' },
+    { id='R.tag_prefix',                        gr='mpKeywords' },
+    { id='R.tag_suffix',                        gr='mpKeywords' },
+    { id='R.setup',                             gr='mpKeywords' },
 
     -- active_variants (1.1) keywords
     -- ##############################
@@ -799,6 +812,11 @@ return {
     -- #########################
 
     { id='minimum_developerversions',           gr='mpKeywords' },
+
+    -- fortran keywords
+    -- ################
+
+    { id='fortran.profile',                     gr='mpKeywords' },
 
     -- gitea keywords
     -- ##############
@@ -1218,6 +1236,11 @@ return {
     { id='texlive.use_mktexlsr',                gr='mpKeywords', ng='mpBool' },
     { id='texlive.use_mktexlsr_on_deactivate',  gr='mpKeywords', ng='mpBool' },
     { id='texlive.texmfport',                   gr='mpKeywords' },
+
+    -- tree_sitter
+    -- ###########
+
+    { id='tree_sitter.libname',                 gr='mpKeywords' },
 
     -- waf keywords
     -- ############
