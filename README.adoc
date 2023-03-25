@@ -10,6 +10,13 @@ Tested on Neovim `v0.5.0`.
 
 Use your favorite package manager:
 
+- link:https://github.com/folke/lazy.nvim[lazy.nvim]:
+
+[source]
+----
+{ 'judaew/macports.nvim' },
+----
+
 - link:https://github.com/wbthomason/packer.nvim[packer.nvim]:
 
 [source]
