@@ -901,7 +901,6 @@ return {
     { id='go.bin',                              gr='mpKeywords' },
     { id='go.vendors',                          gr='mpKeywords' },
     { id='go.setup',                            gr='mpKeywords' },
-    { id='go.vendors',                          gr='mpKeywords' },
 
     -- gpg_verify keywords
     -- ###################
