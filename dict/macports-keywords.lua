@@ -604,6 +604,7 @@ return {
     { id='legacysupport',                       gr='mpPortGroupName', opts='contained' },
     { id='linear_algebra',                      gr='mpPortGroupName', opts='contained' },
     { id='luarocks',                            gr='mpPortGroupName', opts='contained' },
+    { id='luarocks_org',                        gr='mpPortGroupName', opts='contained' },
     { id='makefile',                            gr='mpPortGroupName', opts='contained' },
     { id='meson',                               gr='mpPortGroupName', opts='contained' },
     { id='mpi',                                 gr='mpPortGroupName', opts='contained' },
