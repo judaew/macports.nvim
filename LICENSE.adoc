@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2021, Vadim-Valdis Yudaev
+Copyright (c) 2023, Vadym-Valdis Yudaiev
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
