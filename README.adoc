@@ -1,5 +1,12 @@
 = MacPorts.nvim
 
+[WARNING]
+====
+This plugin is scheduled for a complete rewrite in the near future. I
+highly recommend using the `legacy` branch to avoid any configuration
+incompatibility issues
+====
+
 Neovim syntax plugin for support syntax
 link:https://guide.macports.org/#development[Portfile] in
 link:https://macports.org[MacPorts].
@@ -14,21 +21,21 @@ Use your favorite package manager:
 
 [source]
 ----
-{ 'judaew/macports.nvim' },
+{ 'judaew/macports.nvim', branch = 'legacy' },
 ----
 
 - link:https://github.com/wbthomason/packer.nvim[packer.nvim]:
 
 [source]
 ----
-use 'judaew/macports.nvim'
+use { 'judaew/macports.nvim', branch = 'legacy' }
 ----
 
 - link:https://github.com/junegunn/vim-plug[vim-plug]:
 
 [source]
 ----
-Plug 'judaew/macports.nvim'
+Plug 'judaew/macports.nvim', { 'branch': 'legacy' }
 ----
 
 == Settings
