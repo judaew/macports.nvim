@@ -416,6 +416,7 @@ return {
     { id='startupitem.uniquename',              gr='mpKeywords' },
     { id='startupitem.daemondo.verbosity',      gr='mpKeywords' },
     { id='startupitem.custom_file',             gr='mpKeywords' },
+    { id='startupitem.logfile.stderr',          gr='mpKeywords' },
 
     { id='none',                                gr='mpStartupPid', opts='contained' },
     { id='auto',                                gr='mpStartupPid', opts='contained' },
